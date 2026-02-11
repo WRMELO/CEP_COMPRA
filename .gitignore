@@ -1,0 +1,36 @@
+# --- Editor/IDE ---
+.obsidian/
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Sistema operacional ---
+.DS_Store
+Thumbs.db
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# --- Segredos/config local ---
+.env
+.env.*
+!.env.example
+
+# --- Logs e temporários ---
+*.log
+tmp/
+temp/
+
+# --- Artefatos de execução do projeto ---
+runtime_daily_bundle_*/
