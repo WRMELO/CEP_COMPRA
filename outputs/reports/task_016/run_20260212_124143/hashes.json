@@ -1,0 +1,21 @@
+{
+  "data/audit_protecao_resumo.parquet": "5d7b5b69e482d19b6acfdbb0092f06241a3e1c84bf53361d6d837ab703842534",
+  "data/snapshots_sentinela_holdings.parquet": "e33a2c7459e85589a86103d000fbc306b533dc1ba7c00abe8771674f88788c1b",
+  "data/top_setor_assetclass_W1.parquet": "e9be370c9ac822170bf0de3ee29dac68c7932f6e8118874c86bb5cfbe7aeee4d",
+  "data/top_setor_assetclass_W2.parquet": "2827049368f0c586ad402522ccb53700795ac5aaf6d2d84456d278916187f48d",
+  "data/top_setor_assetclass_W2a.parquet": "c380571f81eb6e667241ca045a67f275746bafdb6d03324fdd1d0cc4aa4d672d",
+  "data/top_setor_assetclass_W2b.parquet": "42779b843998d2a029a62e1695173b093158ce99f2158b65a2f236bfbba21bb3",
+  "data/top_setor_assetclass_W3.parquet": "3d8865a14a922455b090130868309b96c09d0bd8b4e16ce00e3742fc516dc9af",
+  "data/top_tickers_W1_M0.parquet": "54f720c20d2eb9ae7df36069d0552dbe52d12ad564bbc3962b1d91575ea02150",
+  "data/top_tickers_W1_M1.parquet": "88ae7469501d56f189ae9b12fbcd9bff09962e41d4fae50d3db39f7c9227585b",
+  "data/top_tickers_W2_M0.parquet": "531ce15a001e4ca5cf46a769abfff861bb8d952124d959a7e7a63c0a0eef0d91",
+  "data/top_tickers_W2_M1.parquet": "4cf9a80e48922cf096c1775c8d2e44bc5e2f42391928c2c75d15fb686fe8473d",
+  "data/top_tickers_W2a_M0.parquet": "815889dc5fd9a329d989d05bd1558b78c8afeb2c146c4084128c2e6298af5fe1",
+  "data/top_tickers_W2a_M1.parquet": "acbd703e26db6b2a353c6c568ae0d143de97ee0bef459133d19254076f1faa85",
+  "data/top_tickers_W2b_M0.parquet": "e335c798fc5eb3e168604f88d095d5f6d71b03569530821955435bf917bc7540",
+  "data/top_tickers_W2b_M1.parquet": "fde70c37d5d0da05cd5a3ba8ac7f21f8af1367cab3af9858544902285de5280a",
+  "data/top_tickers_W3_M0.parquet": "128aa525b2acc2eba181ab0b0962ee28fb04a0d0ee13d3434443ffc54fffae03",
+  "data/top_tickers_W3_M1.parquet": "b2ff1eed3377f645d528db27f5a59d73536ef61d1975293822ad32d2dbe7e5d4",
+  "manifest.json": "658146706cd075d55644e72b31916d305d7fd707e05915876ab24cc3a26c96a9",
+  "pacote_evidencias_chat_m0_m1_m3.md": "fa538e8e22a74c68c2048217ec5dde7de757753ab05826149be4b8cd96d68923"
+}

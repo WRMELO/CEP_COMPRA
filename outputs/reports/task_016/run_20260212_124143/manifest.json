@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK_CEP_COMPRA_016_PACOTE_EVIDENCIAS_CHAT_FASES_E_DEFINICAO_M3",
+  "run_id": "run_20260212_124143",
+  "generated_at_utc": "2026-02-12T12:41:43.735391+00:00",
+  "inputs": {
+    "forensics_run_root": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309",
+    "m3_proposta_md": "/home/wilson/CEP_COMPRA/docs/emendas/PROPOSTA_M3_CEP_COMPRA_V1_4_NAO_INTEGRADA.md",
+    "m3_backtest_run_root": "/home/wilson/CEP_COMPRA/outputs/backtests/task_015_m3/run_20260212_121309"
+  },
+  "outputs": {
+    "chat_ready_md": "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/pacote_evidencias_chat_m0_m1_m3.md",
+    "tables_dir": "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data"
+  },
+  "artifacts": {
+    "top_tickers": [
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W1_M0.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W1_M1.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2_M0.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2_M1.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2a_M0.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2a_M1.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2b_M0.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W2b_M1.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W3_M0.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_tickers_W3_M1.parquet"
+    ],
+    "top_setor_assetclass": [
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_setor_assetclass_W1.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_setor_assetclass_W2.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_setor_assetclass_W2a.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_setor_assetclass_W2b.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/top_setor_assetclass_W3.parquet"
+    ],
+    "snapshots_sentinela_holdings": "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/snapshots_sentinela_holdings.parquet",
+    "audit_protecao_resumo": "/home/wilson/CEP_COMPRA/outputs/reports/task_016/run_20260212_124143/data/audit_protecao_resumo.parquet"
+  }
+}

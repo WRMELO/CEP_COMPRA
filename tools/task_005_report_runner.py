@@ -200,7 +200,24 @@ def main() -> int:
                     continue
                 lim = df_limits.loc[t]
                 mr = abs(float(r) - float(prev_xt.get(t, 0.0)))
-                if float(r) < float(lim["i_lcl"]) or float(r) > float(lim["i_ucl"]) or mr > float(lim["mr_ucl"]):
+                n_sub = int(lim["n"]) if "n" in lim and pd.notna(lim["n"]) else 3
+                hist_t = xt.loc[:d, t].dropna().tail(max(2, n_sub))
+                xbar_t = float(hist_t.mean()) if len(hist_t) >= 2 else float("nan")
+                r_t = float(hist_t.max() - hist_t.min()) if len(hist_t) >= 2 else float("nan")
+                upside_extreme = (
+                    (pd.notna(lim.get("xbar_ucl", None)) and pd.notna(xbar_t) and xbar_t > float(lim["xbar_ucl"]))
+                    or float(r) > float(lim["i_ucl"])
+                )
+                stress_amp = (
+                    pd.notna(lim.get("r_ucl", None))
+                    and pd.notna(r_t)
+                    and (r_t > float(lim["r_ucl"]))
+                    and (not upside_extreme)
+                )
+                sell_i_lcl = float(r) < float(lim["i_lcl"])
+                sell_i_ucl = float(r) > float(lim["i_ucl"]) and (not upside_extreme)
+                sell_mr = mr > float(lim["mr_ucl"]) and (not upside_extreme)
+                if sell_i_lcl or sell_i_ucl or sell_mr or stress_amp:
                     cash += pos.pop(t)
                 prev_xt[t] = float(r)
 

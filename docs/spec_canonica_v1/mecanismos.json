@@ -1,0 +1,100 @@
+{
+  "version": "1.3",
+  "project": "CEP_COMPRA",
+  "spec_ref": "docs/spec_canonica_v1/ESPECIFICACAO_CANONICA_V1.md",
+  "constituicao_ref": "CEP_NA_BOLSA/docs/00_constituicao/CEP_NA_BOLSA_CONSTITUICAO_V2_20260204.md",
+  "bundle_sell_engine_ref": "docs/bundle_cep_na_bolsa/manifest.json",
+  "portfolio_target_positions": 10,
+  "universo_mode": "TODOS_OS_ATIVOS_DO_SSOT_CEP_NA_BOLSA",
+  "mecanismos": [
+    {
+      "id": "M0",
+      "nome": "Baseline ranking por media de retorno",
+      "status": "congelado",
+      "parametros": {
+        "K_subgrupos": 60,
+        "N_tamanho_subgrupo": 3,
+        "equivalente_sessoes": 62,
+        "portfolio_target_positions": 10,
+        "universo_source": "ssot_acoes_b3 + ssot_bdr_b3",
+        "dp1_status": "RESOLVIDO",
+        "dp1_fonte": "compra_semanal_model_selection.md §2.1, Constituicao 7.2.4"
+      },
+      "ranking": {
+        "metrica": "media_log_retorno_periodo_K",
+        "direcao": "descendente",
+        "universe": "ativos em controle CEP dentro de TODOS_OS_ATIVOS_DO_SSOT_CEP_NA_BOLSA"
+      },
+      "regras_caixa": [
+        {
+          "id": "R1",
+          "condicao": "ativo_ja_na_carteira",
+          "acao": "completar ate limite maximo participacao (Constituicao)"
+        },
+        {
+          "id": "R2",
+          "condicao": "ativo_fora_da_carteira",
+          "acao": "comprar ate 10% participacao ou menos se caixa insuficiente"
+        },
+        {
+          "id": "R3",
+          "condicao": "alternancia",
+          "acao": "alternar R1 e R2 conforme posicao no ranking"
+        }
+      ],
+      "interface": {
+        "inputs": {
+          "eligible_set": "tickers em controle CEP",
+          "carteira_atual": "estado carteira",
+          "caixa_disponivel": "caixa da venda diaria",
+          "constituicao_limits": "referencia Constituicao (nao reescrita)",
+          "portfolio_target_positions": "alvo fixo de 10 posicoes"
+        },
+        "outputs": {
+          "ordens_compra": "lista de ordens (ticker, qty/valor, prioridade)",
+          "target_positions_status": "estado de aderencia ao alvo de 10 posicoes"
+        }
+      }
+    },
+    {
+      "id": "M1",
+      "nome": "Compra com filtros de liquidez, classe, setor e mix B3/BDR",
+      "status": "experimental_v1_3",
+      "parametros": {
+        "lookback_days": 62,
+        "min_volume_days": 50,
+        "portfolio_target_positions": 10,
+        "sector_max_weight": 0.2,
+        "b3_min_weight": 0.5,
+        "b3_max_weight": 0.8,
+        "bdr_min_weight": 0.2,
+        "bdr_max_weight": 0.5
+      },
+      "regras_compra_v13": {
+        "liquidez_excludente": "count(volume>0) >= 50 em 62 dias",
+        "uma_classe_por_empresa": "manter classe mais rentavel por retorno acumulado no lookback",
+        "cap_setor": "maximo 20% por setor; UNKNOWN conta como setor",
+        "mix_b3_bdr": "B3 entre 50% e 80%; BDR complemento",
+        "desempate": "score desc, retorno acumulado desc, ticker asc"
+      },
+      "interface": {
+        "inputs": {
+          "eligible_set": "tickers em controle CEP",
+          "carteira_atual": "estado carteira",
+          "caixa_disponivel": "caixa da venda diaria",
+          "ssot_setor": "outputs/ssot/setores/ssot_latest/setores_ticker_latest.parquet",
+          "ssot_universo": "ssot_acoes_b3 + ssot_bdr_b3"
+        },
+        "outputs": {
+          "ordens_compra": "lista de ordens (ticker, qty/valor, prioridade)",
+          "logs_decisao_m1": "motivos de inclusao/exclusao por regra"
+        }
+      }
+    }
+  ],
+  "proibicoes": [
+    "alterar regras da Constituicao",
+    "modificar mecanismo de venda diaria",
+    "inventar parametros sem aprovacao Owner"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK_CEP_COMPRA_012_EMENDA_V13_REGRAS_E_BACKTEST_M1_COM_SSOT_SETOR",
+  "run_id": "run_20260212_114129",
+  "generated_at_utc": "2026-02-12T11:41:29.291707+00:00",
+  "parameters": {
+    "lookback_days": 62,
+    "min_volume_days": 50,
+    "portfolio_target_positions": 10,
+    "sector_max_weight": 0.2,
+    "b3_min_weight": 0.5,
+    "b3_max_weight": 0.8,
+    "mechanisms": [
+      "M0",
+      "M1"
+    ]
+  },
+  "ssot_setor": {
+    "day_dir": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/20260212",
+    "latest_file": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/ssot_latest/setores_ticker_latest.parquet",
+    "manifest": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/20260212/manifest.json",
+    "hashes": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/20260212/hashes.json"
+  },
+  "outputs": {
+    "metricas_consolidadas_parquet": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/metricas_consolidadas.parquet",
+    "ranking_final_parquet": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/ranking_final.parquet",
+    "plot_html": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/plots/m0_vs_m1_vs_cdi_sp500_bvsp.html",
+    "series_alinhadas_parquet": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/series_alinhadas_plot.parquet"
+  }
+}

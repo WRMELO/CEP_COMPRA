@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK_CEP_COMPRA_015_FORENSICA_FASES_M0_M1_E_PROPOSTA_M3_COM_GATING_SOB_CONTROLE",
+  "run_id": "run_20260212_121309",
+  "generated_at_utc": "2026-02-12T12:13:09.405197+00:00",
+  "outputs": {
+    "relatorio_fases": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/relatorio_fases_m0_m1.md",
+    "weekly_holdings_m0": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/data/weekly_holdings_m0.parquet",
+    "weekly_holdings_m1": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/data/weekly_holdings_m1.parquet",
+    "contribuicao_ticker_fases": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/data/contribuicao_ticker_fases.parquet",
+    "contribuicao_setor_assetclass_fases": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/data/contribuicao_setor_assetclass_fases.parquet",
+    "audit_sell_triggers_windows": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309/data/audit_sell_triggers_windows.parquet"
+  }
+}

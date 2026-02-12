@@ -1,0 +1,11 @@
+{
+  "consolidated/metricas_consolidadas.parquet": "901f931ae2c5a7d1536f85dbbdc8b992911d6b9b5ffce79fd1d8aaabf76e9642",
+  "consolidated/ranking_final.parquet": "853c1609aa72216b6ebd4d274836cf1cb439c5bfc4cc3dee427ef86e16713f13",
+  "consolidated/series_alinhadas_plot.parquet": "5ef76cfe867344a4175caeec0b103fcefdd166faa995a9a1031d98050dc0b18b",
+  "manifest.json": "ad05382dee84c5c4803b21be72cd29a2e3306ac8d16683737d1c157d8c3fcb3e",
+  "plots/m0_vs_m1_vs_cdi_sp500_bvsp.html": "3fa9c395696b012fc65b85e77f7a8fb8b15b32442e45c7c318efe314479aa921",
+  "raw/M0_equity_curve.parquet": "4990645137f446f82b7eeca173927f71ef8e578f4bc6e6dd0a849f518d5ff035",
+  "raw/M0_weekly_decisions.parquet": "f1f3e8553eea3d560cd23fb41f1a051381e7b5898a268ba738b39ba42f80c85c",
+  "raw/M1_equity_curve.parquet": "6c62564548fcca3b423c0fba8c895a8a9284e2a722a32f4c1c97191c3878af9b",
+  "raw/M1_weekly_decisions.parquet": "4a3abd52e7cddc0055e6e61b0fecbd00069c5b18ca358aa41a55191d62ea4496"
+}
