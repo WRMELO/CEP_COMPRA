@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK_CEP_COMPRA_009_VERIFICAR_SELL_POR_ROMPIMENTO_POSITIVO_E_IMPACTO_PLATO",
+  "run_id": "run_20260212_105033",
+  "generated_at_utc": "2026-02-12T10:50:33.949827+00:00",
+  "inputs": {
+    "bundle_manifest": "/home/wilson/.cursor/worktrees/CEP_COMPRA/gxt/docs/bundle_cep_na_bolsa/manifest.json",
+    "bundle_interface": "/home/wilson/.cursor/worktrees/CEP_COMPRA/gxt/docs/bundle_cep_na_bolsa/interface_contrato.md",
+    "master_state_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/master_state_daily.parquet",
+    "portfolio_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_daily.parquet",
+    "portfolio_weekly_events_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_weekly_events.parquet",
+    "audit_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/forensics/task_008/run_20260212_103613/data/portfolio_audit_daily.parquet",
+    "limits_per_ticker_csv": "/home/wilson/CEP_NA_BOLSA/outputs/governanca/operacao_rotina/20260209/ROTINA_GESTAO_CARTEIRA_001/artefatos_v5/merged/limits_per_ticker.csv",
+    "base_operacional_xt_csv": "/home/wilson/CEP_NA_BOLSA/outputs/governanca/operacao_rotina/20260209/ROTINA_GESTAO_CARTEIRA_001/artefatos_v5/base_operacional/base_operacional_xt.csv"
+  },
+  "analysis_periods": {
+    "analysis_start": "2022-07-01",
+    "analysis_end": "2023-06-30",
+    "focus_plateau_start": "2022-10-26",
+    "focus_plateau_end": "2023-03-31"
+  },
+  "outputs": [
+    "regras_sell_xbar_r_i_mr.md",
+    "data/eventos_rompimento.parquet",
+    "data/eventos_com_sell.parquet",
+    "data/metricas_impacto.parquet",
+    "relatorio_task_009_plato_e_rompimentos.md"
+  ]
+}

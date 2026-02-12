@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK_CEP_COMPRA_005_RELATORIO_SEMESTRAL_HOLDINGS_E_MASTER_M0_20180701_20251231",
+  "run_id": "run_20260211_211715",
+  "timestamp_utc": "2026-02-11T21:17:15.134823+00:00",
+  "command": "python tools/task_005_report_runner.py",
+  "parameters": {
+    "mechanism_id": "M0",
+    "initial_cash_brl": 100000.0,
+    "start_date_calendar": "2018-07-01",
+    "end_date_calendar": "2025-12-31",
+    "min_lookback_trading_days": 62,
+    "portfolio_target_positions": 10
+  },
+  "entrypoint_real": "/home/wilson/.cursor/worktrees/CEP_COMPRA/gxt/tools/task_004_backtest_runner.py",
+  "outputs": {
+    "portfolio_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_daily.parquet",
+    "portfolio_weekly_events_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_weekly_events.parquet",
+    "master_state_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/master_state_daily.parquet",
+    "snapshots_semestrais_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/snapshots_semestrais.parquet",
+    "master_event_summary_semestral_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/master_event_summary_semestral.parquet",
+    "relatorio_md": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/relatorio_semestral_m0_20180701_20251231.md",
+    "progress_log": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/logs/progress.log"
+  }
+}

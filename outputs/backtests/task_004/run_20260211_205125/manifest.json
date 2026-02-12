@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK_CEP_COMPRA_004_BACKTEST_WALK_FORWARD_ALL_ASSETS",
+  "run_id": "run_20260211_205125",
+  "timestamp_utc": "2026-02-11T20:51:29.582129+00:00",
+  "mecanismos_testados": [
+    "M0"
+  ],
+  "outputs_root": "/home/wilson/.cursor/worktrees/CEP_COMPRA/gxt/outputs/backtests/task_004/run_20260211_205125",
+  "notes": [
+    "Progresso e ETA registrados em logs por mecanismo (tqdm-like).",
+    "Ranking gerado em modo informativo; criterio oficial de vencedor deve existir explicitamente na especificacao."
+  ]
+}

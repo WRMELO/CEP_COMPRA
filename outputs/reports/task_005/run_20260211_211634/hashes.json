@@ -1,0 +1,34 @@
+[
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/data/portfolio_daily.parquet",
+    "sha256": "bc675b9ec1a90280e2fb7459d85a38d9d4e148d8fdd2a6174b54e59041a27336"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/data/portfolio_weekly_events.parquet",
+    "sha256": "e6b6d6ee8a0b9258856a5365f9e03c1bfdebd6e1da255dea159e27c690374274"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/data/master_state_daily.parquet",
+    "sha256": "cddd0d9e530040740577e2e51ce0f4177a9599a53f10eb9f535ba3d41e7d58f8"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/data/snapshots_semestrais.parquet",
+    "sha256": "3b16691fe67a67483406ba4ea20ae43125fffe5e15071db43cbf0a770b8ac218"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/data/master_event_summary_semestral.parquet",
+    "sha256": "a3c949561f2ac79a030dda028b8ba31275c77b896a9a2cbf6f15051615bbea2a"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/relatorio_semestral_m0_20180701_20251231.md",
+    "sha256": "4cf1a2eca7b5c51cd1ef45820c3af9cc2698df2b1d4ada49ec06de9195a1610c"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/manifest.json",
+    "sha256": "0b058ab046ec5848ac44be2eea80ca8ea4a411ca64d8ed7ef4b454938ac7f0ad"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211634/logs/progress.log",
+    "sha256": "3ab167975fa205e034ee56fdd494d8c53c32877a1ad5fc63dbc39a027b4644ed"
+  }
+]

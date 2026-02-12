@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/carteira_total_daily.parquet",
+    "sha256": "75b28c9bc7ea7b494a49887022afcfc05e2de9bfe500ddf4a30ed049760ba485"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/jumps_topk.parquet",
+    "sha256": "b402fd81254da1a122c19c48b4d74746023cafcd2bc11d050efe90d72d9c0627"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/jump_window_60d.parquet",
+    "sha256": "2c7c1857fcfbc6f4f0f8d02fc2cec2c5f6378fa323b152d0d536d40cb370dcd3"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/cdi_index.parquet",
+    "sha256": "90d8740c11601206b5b1a69ea1cd4058b04a08ff6081b182f7e47a79668b6c21"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/sp500_index.parquet",
+    "sha256": "333ffe220642810542314a8b1d219b053ec3abde131434328d1cda33377dc4f6"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/bvsp_index.parquet",
+    "sha256": "89d5914076bbd984b5fc65e41b01b47cfcf029a33de81db099f9097411508bc3"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/series_alinhadas.parquet",
+    "sha256": "71dbc508805c3475ddbe514c858b7d7a9da86e3afaa5a8b525c72ee9ab70e015"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/diagnostico_salto.md",
+    "sha256": "48b003449b7ea44ca525a5c934591974121fea5a4d6393c473781b733090ff87"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/carteira_vs_cdi_vs_sp500_vs_bvsp.html",
+    "sha256": "e072f5d801f64048922b239537cc0ee2dfc63ea871c700121b2139d81925aade"
+  },
+  {
+    "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/manifest.json",
+    "sha256": "1170fa96742ebfb60ed0e71f169d50bb2cac82448d83b8b74ecd61c6ca6b7bf7"
+  }
+]

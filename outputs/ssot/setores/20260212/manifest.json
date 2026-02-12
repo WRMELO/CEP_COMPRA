@@ -1,0 +1,15 @@
+{
+  "generated_at_utc": "2026-02-12T11:32:44.942638+00:00",
+  "run_date": "20260212",
+  "source_primary": "BRAPI_LOCAL_RAW_FILES",
+  "fallbacks": [
+    "B3 listed companies segment (acoes)",
+    "SSOT BDR setor column (bdr)",
+    "UNKNOWN default"
+  ],
+  "outputs": {
+    "setores_ticker_parquet": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/20260212/setores_ticker.parquet",
+    "setores_ticker_latest_parquet": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/ssot_latest/setores_ticker_latest.parquet",
+    "coverage_by_asset_class_parquet": "/home/wilson/CEP_COMPRA/outputs/ssot/setores/20260212/coverage_by_asset_class.parquet"
+  }
+}

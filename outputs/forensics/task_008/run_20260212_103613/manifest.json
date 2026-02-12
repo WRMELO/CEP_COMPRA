@@ -1,0 +1,78 @@
+{
+  "task_id": "TASK_CEP_COMPRA_008_FORENSICA_SALTO_20251107_E_DESCOLOAMENTO_202207",
+  "run_id": "run_20260212_103613",
+  "generated_at_utc": "2026-02-12T10:36:13.259414+00:00",
+  "inputs": {
+    "portfolio_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_daily.parquet",
+    "portfolio_weekly_events_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_weekly_events.parquet",
+    "master_state_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/master_state_daily.parquet",
+    "series_alinhadas_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214446/data/series_alinhadas.parquet",
+    "base_operacional_xt_csv": "/home/wilson/CEP_NA_BOLSA/outputs/governanca/operacao_rotina/20260209/ROTINA_GESTAO_CARTEIRA_001/artefatos_v5/base_operacional/base_operacional_xt.csv"
+  },
+  "column_mapping": {
+    "date": "date",
+    "ticker": "ticker",
+    "positions_value": "position_value_brl",
+    "cash": "cash_brl",
+    "total_reported": "equity_brl",
+    "n_positions": "n_positions"
+  },
+  "parameters": {
+    "jump_prev_date": "2025-11-06",
+    "jump_date": "2025-11-07",
+    "plateau_suspect_start": "2022-07-01",
+    "plateau_detection": {
+      "rolling_window_days": 30,
+      "max_abs_return_threshold": 0.02,
+      "min_consecutive_days": 60
+    },
+    "identity_tolerance_abs": 0.01
+  },
+  "external_price_probe": [
+    {
+      "provider": "BRAPI",
+      "url": "https://brapi.dev/api/quote/IFCM3?range=3mo&interval=1d",
+      "status_code": 401,
+      "ok": false,
+      "snippet": "{\"error\":true,\"message\":\"Token de autenticação não fornecido\",\"code\":\"MISSING_TOKEN\"}",
+      "reason": "http_error"
+    },
+    {
+      "provider": "BRAPI",
+      "url": "https://brapi.dev/api/quote/IFCM3.SA?range=3mo&interval=1d",
+      "status_code": 401,
+      "ok": false,
+      "snippet": "{\"error\":true,\"message\":\"Token de autenticação não fornecido\",\"code\":\"MISSING_TOKEN\"}",
+      "reason": "http_error"
+    },
+    {
+      "provider": "Stooq",
+      "url": "https://stooq.com/q/d/l/?s=ifcm3.sa&i=d",
+      "status_code": 200,
+      "ok": true,
+      "snippet": "No data",
+      "reason": "ok"
+    },
+    {
+      "provider": "Yahoo",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/IFCM3.SA?period1=1759276800&period2=1763596800&interval=1d&events=history",
+      "status_code": 429,
+      "ok": false,
+      "snippet": "Edge: Too Many Requests",
+      "reason": "http_error"
+    }
+  ],
+  "outputs": [
+    "data/portfolio_audit_daily.parquet",
+    "data/jump_before_after.parquet",
+    "data/jump_ticker_contribuicoes.parquet",
+    "data/jump_price_external_probe.parquet",
+    "data/plateau_detected_interval.parquet",
+    "data/plateau_summary.parquet",
+    "data/plateau_master_state_summary.parquet",
+    "data/plateau_master_segments.parquet",
+    "jump_relatorio.md",
+    "plateau_relatorio.md",
+    "relatorio_conclusivo.md"
+  ]
+}

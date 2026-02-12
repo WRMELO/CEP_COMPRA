@@ -1,0 +1,60 @@
+{
+  "task_id": "TASK_CEP_COMPRA_007_DIAGNOSTICO_SALTO_E_PLOTLY_COM_BVSP",
+  "run_id": "run_20260211_214244",
+  "timestamp_utc": "2026-02-11T21:42:44.000666+00:00",
+  "task006_baseline_run": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227",
+  "inputs": {
+    "portfolio_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/reports/task_005/run_20260211_211715/data/portfolio_daily.parquet"
+  },
+  "column_mapping": {
+    "date": "date",
+    "equity": "equity_brl",
+    "cash": "cash_brl",
+    "sum_positions": "position_value_brl(groupby sum)",
+    "equity_includes_cash": true,
+    "equity_vs_calc_max_abs_diff": 5.820766091346741e-11
+  },
+  "largest_jump": {
+    "date_prev": null,
+    "date_jump": "2025-11-07",
+    "daily_return": 1.7121031289401185,
+    "delta_total": NaN,
+    "delta_equity": NaN,
+    "delta_cash": NaN,
+    "probable_cause": "movimento relevante de caixa/realocacao contribuiu para o salto"
+  },
+  "sources": {
+    "cdi": {
+      "provider": "Banco Central SGS",
+      "series_code": 12,
+      "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json&dataInicial=02/07/2018&dataFinal=31/12/2025",
+      "transform": "cdi_factor=1+taxa_pct/100; cdi_index=cumprod(cdi_factor)"
+    },
+    "sp500": {
+      "provider": "Stooq",
+      "symbol": "^spx",
+      "url": "https://stooq.com/q/d/l/?s=%5Espx&i=d",
+      "transform": "sp500_index=close/close_inicial"
+    },
+    "bvsp": {
+      "provider": "CEP_NA_BOLSA local fallback",
+      "symbol": "^BVSP",
+      "path": "/home/wilson/CEP_NA_BOLSA/outputs/ssot/precos_brutos/ibov/brapi/20260204/precos_brutos_ibov.csv",
+      "reason": "BRAPI sem token e Stooq sem dados",
+      "transform": "bvsp_index=close/close_inicial",
+      "fallback_used": true
+    }
+  },
+  "alignment_rule": "calendario da carteira; forward-fill benchmarks; bfill apenas no inicio se necessario",
+  "outputs": {
+    "plot_html": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/carteira_vs_cdi_vs_sp500_vs_bvsp.html",
+    "series_alinhadas_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/series_alinhadas.parquet",
+    "diagnostico_md": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/diagnostico_salto.md",
+    "carteira_total_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/carteira_total_daily.parquet",
+    "jumps_topk_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/jumps_topk.parquet",
+    "jump_window_60d_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/jump_window_60d.parquet",
+    "cdi_index_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/cdi_index.parquet",
+    "sp500_index_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/sp500_index.parquet",
+    "bvsp_index_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/bvsp_index.parquet"
+  }
+}

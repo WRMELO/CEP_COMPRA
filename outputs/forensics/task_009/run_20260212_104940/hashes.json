@@ -1,0 +1,8 @@
+{
+  "data/eventos_com_sell.parquet": "f0b439307644fc5724be6919d6cee3af468917c64163c5bf7d04341203e62895",
+  "data/eventos_rompimento.parquet": "5d1d42497118a8808d92ce6bfa045e4b038776623dfa76337f49b6a0476bb8a0",
+  "data/metricas_impacto.parquet": "b9085a93e26c89b9ab7915a45b61f60c16f9ee4d72d2e06287d3a5ff40f5a96e",
+  "manifest.json": "aeaa6ca53d7106c4d8846b0bda7414c87e18da4671d5c34301598e7cba1759d7",
+  "regras_sell_xbar_r_i_mr.md": "be05f64e9d1575a6e8916cffafafc9f2dfb073c71003402ea2ead2a5ea3b5a41",
+  "relatorio_task_009_plato_e_rompimentos.md": "8b554f6fd3ff8a49c316ead08d58804c88a65942102072dbf9d2e40bc42c1739"
+}

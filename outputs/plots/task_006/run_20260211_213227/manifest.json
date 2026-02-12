@@ -1,0 +1,34 @@
+{
+  "task_id": "TASK_CEP_COMPRA_006_PLOTLY_EQUITY_CASH_VS_CDI_VS_SP500",
+  "run_id": "run_20260211_213227",
+  "timestamp_utc": "2026-02-11T21:32:27.973413+00:00",
+  "sources": {
+    "cdi": {
+      "provider": "Banco Central SGS",
+      "series_code": 12,
+      "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json&dataInicial=02/07/2018&dataFinal=31/12/2025"
+    },
+    "sp500": {
+      "provider": "Stooq",
+      "symbol": "^spx",
+      "url": "https://stooq.com/q/d/l/?s=%5Espx&i=d"
+    }
+  },
+  "column_mapping": {
+    "portfolio_date": "date",
+    "portfolio_equity": "equity_brl",
+    "portfolio_cash": "cash_brl",
+    "portfolio_positions_sum": "sum_positions",
+    "portfolio_total_used": "carteira_total_brl",
+    "equity_includes_cash": true,
+    "equity_vs_calc_max_abs_diff": 5.820766091346741e-11
+  },
+  "alignment_rule": "calendario da carteira como referencia; benchmarks com forward-fill (e backward-fill apenas se necessario no inicio)",
+  "outputs": {
+    "plot_html": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227/carteira_vs_cdi_vs_sp500.html",
+    "aligned_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227/data/carteira_cdi_sp500_alinhado.parquet",
+    "carteira_total_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227/data/carteira_total_base.parquet",
+    "cdi_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227/data/cdi_raw_index.parquet",
+    "sp500_parquet": "/home/wilson/CEP_COMPRA/outputs/plots/task_006/run_20260211_213227/data/sp500_raw_index.parquet"
+  }
+}

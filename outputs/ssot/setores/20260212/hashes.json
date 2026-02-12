@@ -1,0 +1,6 @@
+{
+  "setores_ticker.parquet": "8973d511d21ed2b3ad87c4364279e5df111c706770a90f3ff9a1d62ba3f2ec09",
+  "setores_ticker_latest.parquet": "8973d511d21ed2b3ad87c4364279e5df111c706770a90f3ff9a1d62ba3f2ec09",
+  "coverage_by_asset_class.parquet": "6d62ea4f3fc706d5c1d03d5441eb880b8d8572510176221891b40301a2dae497",
+  "manifest.json": "f645f487d8bd803d3d1221362b4a5ad2f382e86a896d7f042650ac67db3768dc"
+}
