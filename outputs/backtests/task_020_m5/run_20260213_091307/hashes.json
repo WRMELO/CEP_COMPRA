@@ -1,0 +1,11 @@
+{
+  "hwm_guardrail_events.parquet": "40534a2ad8dc27ac064e47042eb851cb95aab26ae6f7d6cd40028b896ef2987b",
+  "m0_vs_m1_vs_m3_vs_m4_vs_m5_vs_cdi_sp500_bvsp.html": "f54514d63fc8e6193e1a47fed8c50ee8470d39d55a1ff33bbff1336d416d6828",
+  "m5_vs_m0_m1_m3_m4_analysis_autossuficiente.md": "c61a237917d88bfb09e2ec966cadef26151ff6e25a254fa29e55f6b8f8e40b57",
+  "manifest.json": "e729cafc4d70c6a4a4466d710cb674dd970934e626e95670dd663fba268cb334",
+  "metrics_summary.parquet": "9d4d2922996814d14b45ec57bcbe55b97bd3c6f0bfbea45d04f85acde50ebddc",
+  "portfolio_cep_events.parquet": "cf8677d312c4b333e53b2a0465e4f485d3bd8fa693f8969e4f829e57dc55d4d6",
+  "portfolio_daily_ledger.parquet": "a63a5a4c287e4e0b6cba1728edbf252c9e606f19cd723767558616b9594b6f3f",
+  "positions_daily.parquet": "5579872576f8246459e22a7df11874bdd41f59e32835e1edf4baa3c240f6e1ae",
+  "trades.parquet": "88a31885b2254084136dae7673fd250001b9e708316471f09b7926125dfcf16f"
+}

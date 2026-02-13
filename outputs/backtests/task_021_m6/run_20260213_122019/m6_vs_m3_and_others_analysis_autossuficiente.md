@@ -1,0 +1,431 @@
+# TASK 021 - M6 (Xbarra-R + Reposição em RISK_OFF + Guardrail realista)
+
+## Resumo executivo (foco M3 vs M6)
+| mechanism | equity_final | total_return | max_drawdown | max_dd_from_hwm |
+| --- | --- | --- | --- | --- |
+| M3 | 2.3854 | 1.3854 | -0.6803 | nan |
+| M6 | 1.5507 | 0.5507 | -0.1620 | 0.1620 |
+
+## Métricas chave por mecanismo
+| mechanism | equity_final | equity_peak | max_drawdown | max_dd_from_hwm | turnover_count | avg_cash_ratio | avg_n_positions |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| M0 | 2.0556 | 3.1145 | -0.3578 | nan | 876 | 0.0650 | 10.8433 |
+| M1 | 4.1382 | 5.7016 | -0.7811 | nan | 1818 | 0.1369 | 9.0392 |
+| M3 | 2.3854 | 6.1244 | -0.6803 | nan | 1705 | 0.1291 | 9.4871 |
+| M4 | 1.2327 | 1.3696 | -0.1000 | nan | 227 | 0.9045 | 1.0322 |
+| M5 | 2.3021 | 2.5485 | -0.1000 | nan | 1229 | 0.6385 | 3.9812 |
+| M6 | 1.5507 | 1.7739 | -0.1620 | 0.1620 | 1173 | 0.7097 | 3.3906 |
+
+## CEP carteira Xbarra-R (N=3, K=60)
+- Eventos registrados: **94**
+- Regras downside: one_below_lcl + two_of_three_below_2sigma_neg
+| date | chart | subgroup_n | k_subgroups | ret_t | xbar_t | xbar_lcl | two_sigma_neg | rule_one_below_lcl | rule_two_of_three_below_2sigma_neg | state_before | state_after |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2018-11-08 00:00:00 | XBARRA_R | 3 | 60 | -0.0289 | -0.0134 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2018-11-16 00:00:00 | XBARRA_R | 3 | 60 | 0.0139 | 0.0085 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2019-02-07 00:00:00 | XBARRA_R | 3 | 60 | -0.0228 | -0.0139 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2019-02-11 00:00:00 | XBARRA_R | 3 | 60 | -0.0065 | -0.0055 | -0.0116 | -0.0073 | False | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2019-02-18 00:00:00 | XBARRA_R | 3 | 60 | 0.0074 | 0.0038 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2019-03-22 00:00:00 | XBARRA_R | 3 | 60 | -0.0211 | -0.0116 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2019-03-25 00:00:00 | XBARRA_R | 3 | 60 | -0.0054 | -0.0121 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2019-04-01 00:00:00 | XBARRA_R | 3 | 60 | 0.0054 | 0.0131 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2019-04-10 00:00:00 | XBARRA_R | 3 | 60 | -0.0418 | -0.0130 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2019-04-11 00:00:00 | XBARRA_R | 3 | 60 | -0.0082 | -0.0191 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2019-04-12 00:00:00 | XBARRA_R | 3 | 60 | -0.0114 | -0.0205 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2019-04-22 00:00:00 | XBARRA_R | 3 | 60 | 0.0347 | 0.0072 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2019-05-02 00:00:00 | XBARRA_R | 3 | 60 | -0.1223 | -0.0374 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2021-05-05 00:00:00 | XBARRA_R | 3 | 60 | 0.0001 | 0.0001 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-05-12 00:00:00 | XBARRA_R | 3 | 60 | -0.0057 | 0.0029 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2021-06-14 00:00:00 | XBARRA_R | 3 | 60 | 0.0001 | 0.0001 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-08-26 00:00:00 | XBARRA_R | 3 | 60 | 0.0002 | 0.0002 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-09-21 00:00:00 | XBARRA_R | 3 | 60 | 0.0002 | 0.0002 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-09-28 00:00:00 | XBARRA_R | 3 | 60 | 0.0007 | 0.0004 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2021-10-22 00:00:00 | XBARRA_R | 3 | 60 | -0.0062 | -0.0084 | -0.0116 | -0.0073 | False | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2021-10-29 00:00:00 | XBARRA_R | 3 | 60 | 0.0052 | -0.0017 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2021-11-29 00:00:00 | XBARRA_R | 3 | 60 | 0.0003 | 0.0003 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-12-09 00:00:00 | XBARRA_R | 3 | 60 | 0.0003 | 0.0003 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-12-21 00:00:00 | XBARRA_R | 3 | 60 | 0.0003 | 0.0003 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2021-12-29 00:00:00 | XBARRA_R | 3 | 60 | 0.0090 | 0.0027 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-02-02 00:00:00 | XBARRA_R | 3 | 60 | 0.0003 | 0.0003 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-02-09 00:00:00 | XBARRA_R | 3 | 60 | 0.0001 | 0.0011 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-03-21 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-03-28 00:00:00 | XBARRA_R | 3 | 60 | 0.0057 | -0.0005 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-04-29 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-05-06 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-06-28 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-07-05 00:00:00 | XBARRA_R | 3 | 60 | -0.0018 | -0.0003 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-07-19 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-07-26 00:00:00 | XBARRA_R | 3 | 60 | -0.0029 | -0.0006 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2022-08-22 00:00:00 | XBARRA_R | 3 | 60 | -0.0049 | -0.0164 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2022-08-24 00:00:00 | XBARRA_R | 3 | 60 | -0.0025 | -0.0017 | -0.0116 | -0.0073 | False | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2022-10-10 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-10-21 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-11-07 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-11-28 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2022-12-05 00:00:00 | XBARRA_R | 3 | 60 | -0.0012 | -0.0002 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-01-06 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2023-01-13 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0010 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-03-07 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2023-03-14 00:00:00 | XBARRA_R | 3 | 60 | -0.0058 | -0.0016 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-03-24 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2023-03-31 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-05-23 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2023-05-30 00:00:00 | XBARRA_R | 3 | 60 | 0.0029 | 0.0013 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-08-29 00:00:00 | XBARRA_R | 3 | 60 | -0.0116 | -0.0103 | -0.0116 | -0.0073 | False | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2023-08-31 00:00:00 | XBARRA_R | 3 | 60 | -0.0271 | -0.0127 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2023-09-08 00:00:00 | XBARRA_R | 3 | 60 | 0.0049 | -0.0067 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-10-03 00:00:00 | XBARRA_R | 3 | 60 | -0.0200 | -0.0128 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2023-10-04 00:00:00 | XBARRA_R | 3 | 60 | -0.0017 | -0.0144 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2023-10-11 00:00:00 | XBARRA_R | 3 | 60 | -0.0001 | 0.0071 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-11-22 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2023-11-29 00:00:00 | XBARRA_R | 3 | 60 | 0.0008 | 0.0024 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2023-12-21 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2024-01-08 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2024-01-25 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2024-03-12 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2024-03-19 00:00:00 | XBARRA_R | 3 | 60 | 0.0056 | 0.0021 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2024-04-09 00:00:00 | XBARRA_R | 3 | 60 | 0.0004 | 0.0004 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2024-04-16 00:00:00 | XBARRA_R | 3 | 60 | -0.0000 | 0.0003 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2024-07-25 00:00:00 | XBARRA_R | 3 | 60 | -0.0140 | -0.0149 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2024-08-01 00:00:00 | XBARRA_R | 3 | 60 | -0.0076 | -0.0046 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2024-09-09 00:00:00 | XBARRA_R | 3 | 60 | -0.0172 | -0.0148 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2024-09-16 00:00:00 | XBARRA_R | 3 | 60 | -0.0109 | -0.0015 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2024-11-28 00:00:00 | XBARRA_R | 3 | 60 | -0.0386 | -0.0197 | -0.0116 | -0.0073 | True | False | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2024-11-29 00:00:00 | XBARRA_R | 3 | 60 | -0.0024 | -0.0158 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2024-12-06 00:00:00 | XBARRA_R | 3 | 60 | -0.0005 | 0.0022 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2024-12-19 00:00:00 | XBARRA_R | 3 | 60 | -0.0070 | -0.0137 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2024-12-20 00:00:00 | XBARRA_R | 3 | 60 | -0.0105 | -0.0104 | -0.0116 | -0.0073 | False | True | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_OFF |
+| 2025-01-09 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2025-01-16 00:00:00 | XBARRA_R | 3 | 60 | -0.0002 | 0.0011 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2025-02-18 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+| 2025-02-25 00:00:00 | XBARRA_R | 3 | 60 | 0.0034 | 0.0015 | -0.0116 | -0.0073 | False | False | PORTFOLIO_RISK_OFF | PORTFOLIO_RISK_ON |
+| 2025-04-04 00:00:00 | XBARRA_R | 3 | 60 | -0.0303 | -0.0124 | -0.0116 | -0.0073 | True | True | PORTFOLIO_RISK_ON | PORTFOLIO_RISK_OFF |
+| 2025-04-11 00:00:00 | XBARRA_R | 3 | 60 | 0.0005 | 0.0005 | -0.0116 | -0.0073 | False | False | HARD_PROTECTION | PORTFOLIO_RISK_OFF |
+
+## RISK_OFF e reposição
+- Eventos de reposição: **46**
+- max(replenish_cash_fraction_deployed) = **0.300000**
+- max(replenish_positions_count) = **5**
+| date | mechanism | state | replenish_cash_fraction_deployed | replenish_positions_count | target_positions | max_cash_fraction_to_deploy |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2018-11-12 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2019-02-11 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2019-03-25 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.0000 | 0 | 5 | 0.3000 |
+| 2019-04-15 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-05-10 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-06-14 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-08-30 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-09-27 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-10-25 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-11-29 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-12-13 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2021-12-27 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-02-07 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-03-21 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-07-04 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-07-25 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-08-22 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-10-10 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-10-24 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-11-07 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2022-11-28 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-01-09 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-03-13 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-05-29 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-09-04 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-10-09 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-11-27 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2023-12-26 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-01-08 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-01-29 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-03-18 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-04-15 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-07-29 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-09-09 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2024-12-02 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-01-13 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-02-24 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-04-14 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-05-05 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-05-19 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-06-02 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-06-16 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-07-07 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-08-18 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-09-08 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+| 2025-09-29 00:00:00 | M6 | PORTFOLIO_RISK_OFF | 0.3000 | 5 | 5 | 0.3000 |
+
+## Guardrail realista (sem clamp)
+- max_dd_from_hwm_M6 = **0.162010**
+- tempo abaixo do limite (dias) = **921**
+| date | mechanism | hwm | hwm_floor | total_before_action | total_after_action | dd_from_hwm | overshoot_below_floor | action | state_before | state_after |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2019-05-02 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1133 | 1.1133 | -0.1620 | 0.0824 | FORCE_TO_CASH_AND_BLOCK_BUYS | PORTFOLIO_RISK_OFF | HARD_PROTECTION |
+| 2019-05-03 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1136 | 1.1136 | -0.1618 | 0.0821 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-06 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1139 | 1.1139 | -0.1616 | 0.0818 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-07 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1142 | 1.1142 | -0.1614 | 0.0816 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-08 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1144 | 1.1144 | -0.1612 | 0.0813 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-09 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1147 | 1.1147 | -0.1610 | 0.0810 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-10 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1150 | 1.1150 | -0.1608 | 0.0807 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-13 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1153 | 1.1153 | -0.1606 | 0.0805 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-14 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1155 | 1.1155 | -0.1604 | 0.0802 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-15 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1158 | 1.1158 | -0.1602 | 0.0799 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-16 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1161 | 1.1161 | -0.1599 | 0.0796 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-17 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1164 | 1.1164 | -0.1597 | 0.0794 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-20 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1166 | 1.1166 | -0.1595 | 0.0791 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-21 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1169 | 1.1169 | -0.1593 | 0.0788 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-22 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1172 | 1.1172 | -0.1591 | 0.0785 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-23 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1175 | 1.1175 | -0.1589 | 0.0783 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-24 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1177 | 1.1177 | -0.1587 | 0.0780 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-27 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1180 | 1.1180 | -0.1585 | 0.0777 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-28 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1183 | 1.1183 | -0.1583 | 0.0774 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-29 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1186 | 1.1186 | -0.1581 | 0.0772 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-30 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1188 | 1.1188 | -0.1579 | 0.0769 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-05-31 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1191 | 1.1191 | -0.1577 | 0.0766 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-03 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1194 | 1.1194 | -0.1575 | 0.0763 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-04 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1197 | 1.1197 | -0.1573 | 0.0761 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-05 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1199 | 1.1199 | -0.1570 | 0.0758 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-06 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1202 | 1.1202 | -0.1568 | 0.0755 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-07 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1205 | 1.1205 | -0.1566 | 0.0752 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-10 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1208 | 1.1208 | -0.1564 | 0.0750 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-11 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1210 | 1.1210 | -0.1562 | 0.0747 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-12 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1213 | 1.1213 | -0.1560 | 0.0744 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-13 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1216 | 1.1216 | -0.1558 | 0.0741 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-14 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1219 | 1.1219 | -0.1556 | 0.0739 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-17 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1221 | 1.1221 | -0.1554 | 0.0736 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-18 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1224 | 1.1224 | -0.1552 | 0.0733 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-19 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1227 | 1.1227 | -0.1550 | 0.0730 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-21 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1230 | 1.1230 | -0.1548 | 0.0728 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-24 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1233 | 1.1233 | -0.1546 | 0.0725 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-25 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1235 | 1.1235 | -0.1543 | 0.0722 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-26 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1238 | 1.1238 | -0.1541 | 0.0719 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-27 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1241 | 1.1241 | -0.1539 | 0.0716 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-06-28 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1244 | 1.1244 | -0.1537 | 0.0714 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-01 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1246 | 1.1246 | -0.1535 | 0.0711 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-02 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1249 | 1.1249 | -0.1533 | 0.0708 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-03 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1252 | 1.1252 | -0.1531 | 0.0705 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-04 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1255 | 1.1255 | -0.1529 | 0.0703 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-05 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1257 | 1.1257 | -0.1527 | 0.0700 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-08 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1260 | 1.1260 | -0.1525 | 0.0697 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-10 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1266 | 1.1266 | -0.1520 | 0.0692 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-11 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1269 | 1.1269 | -0.1518 | 0.0689 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-12 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1271 | 1.1271 | -0.1516 | 0.0686 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-15 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1274 | 1.1274 | -0.1514 | 0.0683 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-16 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1277 | 1.1277 | -0.1512 | 0.0680 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-17 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1280 | 1.1280 | -0.1510 | 0.0678 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-18 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1282 | 1.1282 | -0.1508 | 0.0675 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-19 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1285 | 1.1285 | -0.1506 | 0.0672 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-22 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1288 | 1.1288 | -0.1504 | 0.0669 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-23 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1291 | 1.1291 | -0.1502 | 0.0667 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-24 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1294 | 1.1294 | -0.1500 | 0.0664 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-25 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1296 | 1.1296 | -0.1498 | 0.0661 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-26 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1299 | 1.1299 | -0.1495 | 0.0658 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-29 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1302 | 1.1302 | -0.1493 | 0.0655 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-30 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1305 | 1.1305 | -0.1491 | 0.0653 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-07-31 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1307 | 1.1307 | -0.1489 | 0.0650 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-01 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1310 | 1.1310 | -0.1487 | 0.0647 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-02 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1313 | 1.1313 | -0.1485 | 0.0645 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-05 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1315 | 1.1315 | -0.1483 | 0.0642 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-06 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1318 | 1.1318 | -0.1481 | 0.0640 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-07 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1320 | 1.1320 | -0.1479 | 0.0637 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-08 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1323 | 1.1323 | -0.1478 | 0.0634 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-09 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1325 | 1.1325 | -0.1476 | 0.0632 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-12 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1328 | 1.1328 | -0.1474 | 0.0629 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-13 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1331 | 1.1331 | -0.1472 | 0.0627 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-14 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1333 | 1.1333 | -0.1470 | 0.0624 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-15 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1336 | 1.1336 | -0.1468 | 0.0622 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-16 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1338 | 1.1338 | -0.1466 | 0.0619 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-19 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1341 | 1.1341 | -0.1464 | 0.0616 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-20 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1344 | 1.1344 | -0.1462 | 0.0614 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-21 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1346 | 1.1346 | -0.1460 | 0.0611 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-22 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1349 | 1.1349 | -0.1458 | 0.0609 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+| 2019-08-23 00:00:00 | M6 | 1.3286 | 1.1957 | 1.1351 | 1.1351 | -0.1456 | 0.0606 | FORCE_TO_CASH_AND_BLOCK_BUYS | HARD_PROTECTION | HARD_PROTECTION |
+
+## Validação: zero BUY em HARD_PROTECTION
+- BUY_count_during_HARD_PROTECTION_M6 = **0**
+- Gate S7 = **PASS**
+
+## Comparação por fases W1/W2/W3 (M3 vs M6)
+| mechanism | W1_return | W1_max_drawdown | W2_return | W2_max_drawdown | W3_return | W3_max_drawdown |
+| --- | --- | --- | --- | --- | --- | --- |
+| M3 | 4.3696 | -0.1874 | -0.5327 | -0.6129 | -0.1998 | -0.6803 |
+| M6 | 0.1882 | -0.1620 | 0.0052 | -0.1118 | 0.0758 | -0.1486 |
+
+## Top contribuintes/detratores por fase (M3 vs M6)
+### W1
+**M6 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| LOGN3 | Transporte Hidroviário | B3 | 0.0754 |
+| KEPL3 | Máq. e Equip. Industriais | B3 | 0.0457 |
+| FHER3 | Fertilizantes e Defensivos | B3 | 0.0448 |
+| BPAC11 | Bancos | B3 | 0.0318 |
+| TRIS3 | Incorporações | B3 | 0.0278 |
+| VIVR3 | Incorporações | B3 | 0.0250 |
+| IRBR3 | Resseguradoras | B3 | 0.0248 |
+| PRIO3 | Exploração. Refino e Distribuição | B3 | 0.0224 |
+| PPLA11 | Financeiro e Outros/Serviços Financeiros/Gestão de Recursos e Investimentos | BDR | 0.0213 |
+| GUAR3 | Tecidos. Vestuário e Calçados | B3 | 0.0203 |
+
+**M6 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| LPSB3 | Intermediação Imobiliária | B3 | -0.0350 |
+| GFSA3 | Incorporações | B3 | -0.0272 |
+| HBOR3 | Incorporações | B3 | -0.0261 |
+| CSNA3 | Siderurgia | B3 | -0.0230 |
+| ETER3 | Produtos para Construção | B3 | -0.0165 |
+| INEP3 | Máq. e Equip. Industriais | B3 | -0.0155 |
+| M1TA34 | Redes Sociais | BDR | -0.0136 |
+| MBRF3 | Carnes e Derivados | B3 | -0.0124 |
+| RANI3 | Embalagens | B3 | -0.0119 |
+| INEP4 | Máq. e Equip. Industriais | B3 | -0.0096 |
+
+**M3 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| FHER3 | Fertilizantes e Defensivos | B3 | 0.5870 |
+| INEP3 | Máq. e Equip. Industriais | B3 | 0.5694 |
+| LWSA3 | Programas e Serviços | B3 | 0.4811 |
+| CRPG6 | Químicos Diversos | B3 | 0.3866 |
+| RCSL3 | Material Rodoviário | B3 | 0.3155 |
+| TASA3 | Armas e Munições | B3 | 0.2569 |
+| BRKM5 | Petroquímicos | B3 | 0.2385 |
+| ETER3 | Produtos para Construção | B3 | 0.1945 |
+| PPLA11 | Financeiro e Outros/Serviços Financeiros/Gestão de Recursos e Investimentos | BDR | 0.1567 |
+| CSNA3 | Siderurgia | B3 | 0.1507 |
+
+**M3 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| DASA3 | Serv.Méd.Hospit..Análises e Diagnósticos | B3 | -0.2980 |
+| MGLU3 | Eletrodomésticos | B3 | -0.1176 |
+| PSVM11 | Serviços de Apoio e Armazenagem | B3 | -0.1080 |
+| GUAR3 | Tecidos. Vestuário e Calçados | B3 | -0.0988 |
+| HBOR3 | Incorporações | B3 | -0.0928 |
+| VIVR3 | Incorporações | B3 | -0.0639 |
+| TELB3 | Telecomunicações | B3 | -0.0601 |
+| OSXB3 | Equipamentos e Serviços | B3 | -0.0565 |
+| COPH34 | Petróleo | BDR | -0.0557 |
+| F1AN34 | Energia | BDR | -0.0515 |
+
+### W2
+**M6 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| TSLA34 | Automóvel | BDR | 0.0402 |
+| CEBR5 | Energia Elétrica | B3 | 0.0316 |
+| LOGN3 | Transporte Hidroviário | B3 | 0.0242 |
+| BLAU3 | Medicamentos e Outros Produtos | B3 | 0.0230 |
+| LPSB3 | Intermediação Imobiliária | B3 | 0.0222 |
+| CMIG3 | Energia Elétrica | B3 | 0.0186 |
+| MOSC34 | Materiais básicos | BDR | 0.0179 |
+| PTNT3 | Fios e Tecidos | B3 | 0.0167 |
+| LWSA3 | Programas e Serviços | B3 | 0.0155 |
+| COPH34 | Petróleo | BDR | 0.0068 |
+
+**M6 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| FHER3 | Fertilizantes e Defensivos | B3 | -0.0393 |
+| IFCM3 | Programas e Serviços | B3 | -0.0341 |
+| CBAV3 | Minerais Metálicos | B3 | -0.0259 |
+| SNSY5 | Materiais Diversos | B3 | -0.0238 |
+| SGPS3 | Fios e Tecidos | B3 | -0.0233 |
+| RNEW3 | Energia Elétrica | B3 | -0.0169 |
+| CGRA4 | Tecidos. Vestuário e Calçados | B3 | -0.0136 |
+| E1DU34 | Prestador de Serviços | BDR | -0.0098 |
+| KEPL3 | Máq. e Equip. Industriais | B3 | -0.0096 |
+| M1NS34 | Bebidas | BDR | -0.0091 |
+
+**M3 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| M1RN34 | Farmacêutico | BDR | 0.4154 |
+| HAGA3 | Artefatos de Ferro e Aço | B3 | 0.2424 |
+| MOSC34 | Materiais básicos | BDR | 0.0853 |
+| LILY34 | Farmacêutico | BDR | 0.0555 |
+| EMAE4 | Energia Elétrica | B3 | 0.0551 |
+| RSUL4 | Material Rodoviário | B3 | 0.0422 |
+| B1NT34 | Farmacêutico | BDR | 0.0362 |
+| BEEF3 | Carnes e Derivados | B3 | 0.0260 |
+| CMIG3 | Energia Elétrica | B3 | 0.0250 |
+| ENMT3 | Energia Elétrica | B3 | 0.0236 |
+
+**M3 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| VAMO3 | Aluguel de carros | B3 | -0.4191 |
+| KEPL3 | Máq. e Equip. Industriais | B3 | -0.2405 |
+| MWET4 | Material Rodoviário | B3 | -0.2122 |
+| SYNE3 | Exploração de Imóveis | B3 | -0.2096 |
+| CASH3 | Programas e Serviços | B3 | -0.1678 |
+| FHER3 | Fertilizantes e Defensivos | B3 | -0.1598 |
+| BRAV3 | Exploração. Refino e Distribuição | B3 | -0.1522 |
+| CBAV3 | Minerais Metálicos | B3 | -0.1481 |
+| ALLD3 | Eletrodomésticos | B3 | -0.1480 |
+| D1OC34 | Tecnologia | BDR | -0.1293 |
+
+### W3
+**M6 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| S2EA34 | Tecnologia | BDR | 0.1032 |
+| AMBP3 | Água e Saneamento | B3 | 0.0956 |
+| B1IL34 | Tecnologia | BDR | 0.0946 |
+| C2OI34 | Financeiro | BDR | 0.0891 |
+| COGN3 | Serviços Educacionais | B3 | 0.0298 |
+| HAPV3 | Serv.Méd.Hospit..Análises e Diagnósticos | B3 | 0.0221 |
+| MNPR3 | Carnes e Derivados | B3 | 0.0220 |
+| CTSA4 | Fios e Tecidos | B3 | 0.0186 |
+| FRAS3 | Material Rodoviário | B3 | 0.0178 |
+| TPIS3 | Exploração de Rodovias | B3 | 0.0152 |
+
+**M6 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| SBFG3 | Produtos Diversos | B3 | -0.0561 |
+| K2CG34 | Tecnologia | BDR | -0.0391 |
+| GFSA3 | Incorporações | B3 | -0.0366 |
+| TRAD3 | Programas e Serviços | B3 | -0.0349 |
+| U2PS34 | Financeiro | BDR | -0.0296 |
+| G1DS34 | Comunicação | BDR | -0.0271 |
+| RCSL4 | Material Rodoviário | B3 | -0.0241 |
+| CASH3 | Programas e Serviços | B3 | -0.0241 |
+| NGRD3 | Programas e Serviços | B3 | -0.0202 |
+| EALT3 | Máq. e Equip. Industriais | B3 | -0.0183 |
+
+**M3 - Top 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| AMBP3 | Água e Saneamento | B3 | 0.3625 |
+| ITUB3 | Bancos | B3 | 0.0871 |
+| CASH3 | Programas e Serviços | B3 | 0.0603 |
+| DASA3 | Serv.Méd.Hospit..Análises e Diagnósticos | B3 | 0.0541 |
+| ITUB4 | Bancos | B3 | 0.0514 |
+| RCSL4 | Material Rodoviário | B3 | 0.0390 |
+| TTEN3 | Agricultura | B3 | 0.0320 |
+| AGXY3 | Agricultura | B3 | 0.0275 |
+| PSSA3 | Seguradoras | B3 | 0.0240 |
+| K2CG34 | Tecnologia | BDR | 0.0223 |
+
+**M3 - Bottom 10**
+| ticker | sector | asset_class | pnl_brl |
+| --- | --- | --- | --- |
+| MNPR3 | Carnes e Derivados | B3 | -0.2103 |
+| ENMT3 | Energia Elétrica | B3 | -0.1624 |
+| SBFG3 | Produtos Diversos | B3 | -0.0924 |
+| BRAV3 | Exploração. Refino e Distribuição | B3 | -0.0792 |
+| FICT3 | Carnes e Derivados | B3 | -0.0668 |
+| SUZB3 | Papel e Celulose | B3 | -0.0652 |
+| MYPK3 | Automóveis e Motocicletas | B3 | -0.0610 |
+| IRBR3 | Resseguradoras | B3 | -0.0560 |
+| KEPL3 | Máq. e Equip. Industriais | B3 | -0.0532 |
+| DESK3 | Telecomunicações | B3 | -0.0523 |
+
+## Gates
+- S5 no clamp realistic: **PASS**
+- S6 replenishment limits: **PASS**
+- S7 no buy in hard protection: **PASS**
+- S8 portfolio CEP is Xbarra-R: **PASS**
+- S9 HTML has TOTAL_EM_PERCENTUAL_DO_CDI for M3/M6 (e demais): **PASS**

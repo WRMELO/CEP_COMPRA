@@ -1,0 +1,6 @@
+TASK: TASK_CEP_CYCLE2_001_MASTER_REGIME_CALIBRATION_V1
+PASS: leituras restritas a:
+- /home/wilson/CEP_NA_BOLSA
+- /home/wilson/CEP_COMPRA
+PASS: escritas restritas a:
+- /home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration

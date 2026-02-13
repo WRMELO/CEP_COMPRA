@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001_MASTER_REGIME_CALIBRATION_V1",
+  "version": "v1",
+  "date_reference": "2026-02-13",
+  "scenario_bear": "W3",
+  "features_used": [
+    "sinais_cep_two_sigma_neg",
+    "sinais_cep_xbar_lcl",
+    "sinais_cep_stress_amp",
+    "sinais_cep_n_positions_m6",
+    "sinais_cep_portfolio_state_risk_on"
+  ],
+  "orientations": {
+    "sinais_cep_two_sigma_neg": 1,
+    "sinais_cep_xbar_lcl": 1,
+    "sinais_cep_stress_amp": 1,
+    "sinais_cep_n_positions_m6": -1,
+    "sinais_cep_portfolio_state_risk_on": -1
+  },
+  "thresholds": {
+    "bull_enter": 0.4263069215483866,
+    "bull_exit": 0.4177807831174189,
+    "bear_enter": 0.255784152929032,
+    "bear_exit": 0.2643102913599997,
+    "min_days": 1
+  },
+  "objective_metrics": {
+    "balanced_accuracy": 0.6312196812196812,
+    "regime_switches": 129,
+    "score_final": 0.6215928155480394
+  },
+  "predicted_regime_distribution": {
+    "BULL": 1123,
+    "BEAR": 886,
+    "TRANSICAO": 1
+  }
+}

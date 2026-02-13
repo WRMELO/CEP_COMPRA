@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001_MASTER_REGIME_CALIBRATION_V1",
+  "date_reference": "2026-02-13",
+  "base_dir": "outputs/cycle2/20260213/master_regime_calibration",
+  "artifacts": [
+    "inventory_sources.parquet",
+    "inventory_sources.csv",
+    "windows_w1_w2_w3.json",
+    "windows_w1_w2_w3.parquet",
+    "master_signals_daily.parquet",
+    "master_signals_daily.csv",
+    "feature_scores.parquet",
+    "candidate_thresholds.parquet",
+    "confusion_summary.json",
+    "stability_summary.json",
+    "ssot_cycle2/master_regime_classifier_v1.json",
+    "regime_calibration_report_v1.md",
+    "manifest.json",
+    "hashes.sha256"
+  ],
+  "allowlist_read": [
+    "/home/wilson/CEP_NA_BOLSA",
+    "/home/wilson/CEP_COMPRA"
+  ],
+  "allowlist_write": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration"
+}

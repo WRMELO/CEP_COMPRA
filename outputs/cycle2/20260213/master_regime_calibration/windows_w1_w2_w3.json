@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001_MASTER_REGIME_CALIBRATION_V1",
+  "resolved_method": "explicit_cycle_z_artifacts",
+  "source_paths": [
+    "/home/wilson/CEP_COMPRA/tools/task_021_m6_runner.py",
+    "/home/wilson/CEP_COMPRA/outputs/backtests/task_021_m6/run_20260213_122019/m6_vs_m3_and_others_analysis_autossuficiente.md"
+  ],
+  "windows": {
+    "W1": {
+      "start": "2018-07-01",
+      "end": "2021-06-30"
+    },
+    "W2": {
+      "start": "2021-07-01",
+      "end": "2022-12-31"
+    },
+    "W3": {
+      "start": "2024-09-01",
+      "end": "2025-11-30"
+    }
+  }
+}

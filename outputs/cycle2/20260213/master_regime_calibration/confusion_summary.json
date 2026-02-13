@@ -1,0 +1,20 @@
+{
+  "scenario_winner_bear": "W3",
+  "balanced_accuracy": 0.6312196812196812,
+  "matrix_2x2_collapsed_transition_as_error": {
+    "tp_W1_pred_BULL": 531,
+    "fn_W1_pred_not_BULL": 209,
+    "tn_BEAR_pred_BEAR": 170,
+    "fp_BEAR_pred_not_BEAR": 142
+  },
+  "matrix_detail_true_vs_pred": {
+    "BEAR": {
+      "W1": 209,
+      "W3": 170
+    },
+    "BULL": {
+      "W1": 531,
+      "W3": 142
+    }
+  }
+}
