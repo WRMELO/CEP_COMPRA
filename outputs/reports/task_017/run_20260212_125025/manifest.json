@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK_CEP_COMPRA_017_BUNDLE_FORENSE_AMPLIADO_M0_M1_M3_PARA_EXPLICAR_FASES",
+  "run_id": "run_20260212_125025",
+  "generated_at_utc": "2026-02-12T12:50:25.393245+00:00",
+  "inputs": {
+    "run_forensics_base": "/home/wilson/CEP_COMPRA/outputs/forensics/task_015/run_20260212_121309",
+    "run_backtest_m3": "/home/wilson/CEP_COMPRA/outputs/backtests/task_015_m3/run_20260212_121309",
+    "run_backtest_m0_m1_v12": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129"
+  },
+  "outputs": {
+    "markdown": "/home/wilson/CEP_COMPRA/outputs/reports/task_017/run_20260212_125025/pacote_forense_ampliado.md",
+    "data_dir": "/home/wilson/CEP_COMPRA/outputs/reports/task_017/run_20260212_125025/data",
+    "zip": "/home/wilson/CEP_COMPRA/outputs/reports/task_017/run_20260212_125025/data_bundle_task_017.zip"
+  }
+}

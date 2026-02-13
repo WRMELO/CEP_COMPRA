@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK_CEP_COMPRA_018_ANALISE_CONSOLIDADA_FASES_M0_M1_M3",
+  "run_id": "run_20260212_134037",
+  "generated_at_utc": "2026-02-12T13:40:37.111069+00:00",
+  "source_data": "outputs/reports/task_017/run_20260212_125255/data",
+  "outputs": {
+    "markdown": "outputs/reports/task_018/run_20260212_134037/analise_consolidada_fases_m0_m1_m3.md"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "data/decomp_pnl_event_months.parquet": "db00fb04724690db5c350ce8100d9250c4f4f9bf1a37308cf7d3dcacd70a1774",
+  "data/decomp_pnl_windows.parquet": "a2888d681ae82981f403b7669142fec745d00e59213cdabcd61bd3f836b56683",
+  "data/holdings_weekly_m0.parquet": "ed87b50717b2b8b12e7f45d67c80d2f3cf9d09371115ccf71c96f4cd68116601",
+  "data/holdings_weekly_m1.parquet": "152b117b34a23550fa05945f64d1e4145da0b0746b5131708ffeba0a7052876e",
+  "data/holdings_weekly_m3.parquet": "09affbef41506ee4aa36b3ecbc390b04335dec5723ea60dc8b22da9f1140a51e",
+  "data/ledger_trades_m0.parquet": "a883c88b773367a9ddab1c455242e8fcecd9baa56ca97d3d58b8c9a8d2b9800b",
+  "data/ledger_trades_m1.parquet": "4ef345c58b8d1a96c881203ae2da8c0039e3473e9fc75efdc25c27c035787152",
+  "data/ledger_trades_m3.parquet": "88e3b3dbcc1100a1a8a470216284be3c808b6cd1a26b2867b8d4589b803be547",
+  "data/master_state_daily.parquet": "d0759b038d2a02be798c2c37d440c03755fb4ec8d9fc42aba67c4e13c92a6dd6",
+  "data/mtm_daily_by_ticker_m0.parquet": "221869816c2ecb076dfcf739b9bfdc541f3a43413d4ffd7cbf353b35363128fd",
+  "data/mtm_daily_by_ticker_m1.parquet": "ea718b92cb82494d9c2e266acbc5b48877ea76bb993f29d8e70e353eb639db94",
+  "data/mtm_daily_by_ticker_m3.parquet": "d51696c9fa6ca60362309b42255da4883b5e47790c725b2010040cb7d3c434a6",
+  "data_bundle_task_017.zip": "666e7ea2cbcfd3550d7e7160eb81882865cf1cb55e373705e455c0a0b53737bd",
+  "manifest.json": "29316d61d53a477af8c1f13e86cb9355b24c0d81c493986372c7644cadbd0e3d",
+  "pacote_forense_ampliado.md": "c41e268114e60150da9c2c4ae0224c62ec9b37825cfec802ddaa19676eb9fd11"
+}
