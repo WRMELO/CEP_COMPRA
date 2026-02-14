@@ -1,0 +1,61 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002B_MASTER_REGIME_SUPERVISED_FROM_PRICE_THEORY_DUALINDEX_V1",
+  "inputs": {
+    "repo_root": "/home/wilson/CEP_COMPRA",
+    "master_index_ticker": "^BVSP",
+    "validation_index_ticker": "^GSPC",
+    "price_source": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/series_alinhadas_plot.parquet",
+      "method": "autodiscovery_required_fields",
+      "selected": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/series_alinhadas_plot.parquet",
+      "selected_columns": [
+        "date",
+        "M0_equity_idx",
+        "M1_equity_idx",
+        "cdi_index",
+        "sp500_index",
+        "bvsp_index",
+        "cdi_index_norm",
+        "sp500_index_norm",
+        "bvsp_index_norm"
+      ],
+      "candidates_found": 17
+    },
+    "theory_params": {
+      "lookback_days_for_peaks_troughs": 252,
+      "bull_threshold": 0.2,
+      "bear_threshold": -0.2,
+      "neutral_band": 0.1,
+      "min_days": 5,
+      "hysteresis": {
+        "bull_exit_neutral": 0.1,
+        "bear_exit_neutral": -0.1
+      }
+    }
+  },
+  "outputs": {
+    "price_theory_labels_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/labels_theory_bvsp.parquet",
+    "price_theory_labels_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/labels_theory_gspc.parquet",
+    "cep_features_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/cep_features_bvsp.parquet",
+    "cep_features_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/cep_features_gspc.parquet",
+    "model_fit_summary_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/model_fit_summary.json",
+    "threshold_search_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/threshold_search_results.parquet",
+    "regime_daily_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/regime_daily_bvsp.parquet",
+    "regime_daily_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/regime_daily_gspc.parquet",
+    "ssot_master_regime_classifier_json": "/home/wilson/CEP_COMPRA/ssot_cycle2/master_regime_classifier_v5.json",
+    "report_md_autocontido": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/report.md",
+    "manifest_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/manifest.json",
+    "hashes_sha256": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1/hashes.sha256"
+  },
+  "gates": {
+    "S1_GATE_ALLOWLIST_CEP_COMPRA_ONLY": "PASS",
+    "S2_CHECK_COMPILE_OR_IMPORTS": "PASS",
+    "S3_BUILD_PRICE_THEORY_LABELS_BVSP_AND_GSPC": "PASS",
+    "S4_BUILD_CEP_FEATURES_EXOG_BVSP_AND_GSPC": "PASS",
+    "S5_FIT_INTERPRETABLE_MODEL_ON_BVSP_AND_THRESHOLD_SEARCH": "PASS",
+    "S6_VALIDATE_ON_GSPC_NO_REFIT": "PASS",
+    "S7_VERIFY_THREE_STATES_REACHABLE_AND_NEUTRAL_DOMINANT": "PASS",
+    "S8_WRITE_SSOT_V5_EXPLICIT_FORMULA_PSEUDOCODE": "PASS",
+    "S9_GENERATE_MD_AUTOCONTIDO_MANIFEST_HASHES": "PASS"
+  }
+}

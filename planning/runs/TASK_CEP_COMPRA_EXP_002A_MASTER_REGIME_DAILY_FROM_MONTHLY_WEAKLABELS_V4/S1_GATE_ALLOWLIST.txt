@@ -1,0 +1,3 @@
+TASK: TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_WEAKLABELS_V4
+PASS: leituras permitidas em /home/wilson/CEP_COMPRA/{outputs,docs,planning}
+PASS: escrita permitida em outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/

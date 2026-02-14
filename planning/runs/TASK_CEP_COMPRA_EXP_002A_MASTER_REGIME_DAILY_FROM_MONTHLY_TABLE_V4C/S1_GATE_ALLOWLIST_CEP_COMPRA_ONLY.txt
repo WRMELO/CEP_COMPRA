@@ -1,0 +1,3 @@
+TASK: TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_TABLE_V4C
+PASS: leitura em /home/wilson/CEP_COMPRA
+PASS: escrita em outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/

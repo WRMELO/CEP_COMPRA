@@ -1,0 +1,261 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_TABLE_V4C",
+  "version": "v4",
+  "master_ticker": "^BVSP",
+  "table_parse_contract": {
+    "required_columns": [
+      "period_mm_aa_range",
+      "tipo"
+    ],
+    "period_format": "MM/YY–MM/YY",
+    "tipo_map": {
+      "Bull": "BULL",
+      "Bear": "BEAR"
+    },
+    "expected_rows": 6,
+    "date_interpretation_rule": {
+      "start_month": "primeiro pregão do mês inicial",
+      "end_month": "último pregão do mês final",
+      "inclusive": true
+    }
+  },
+  "master_series_source": {
+    "path": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_close_daily.parquet",
+    "method": "autodiscover_globs",
+    "candidates_found": 4,
+    "accepted_count": 4,
+    "selected": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_close_daily.parquet",
+    "selected_columns": [
+      "close",
+      "date",
+      "master_ticker"
+    ]
+  },
+  "numeric_validation_rules": {
+    "bull_gain_threshold": 0.2,
+    "bear_drawdown_threshold": -0.2,
+    "weight_if_pass": 1.0,
+    "weight_if_fail_or_ambiguous": 0.25
+  },
+  "model": {
+    "chosen_model": "shallow_tree",
+    "formula_explicit": "if z(feature)<=threshold then p_bull=p_if_le_threshold else p_bull=p_if_gt_threshold",
+    "formula_parameters": {
+      "feature": "range_n",
+      "threshold": -0.083105,
+      "p_if_le_threshold": 0.38146341463414635,
+      "p_if_gt_threshold": 0.232132309509746
+    },
+    "normalization": {
+      "mean_train": {
+        "r_t": 0.000741002077780726,
+        "mr_t": 0.015165835812416978,
+        "xbar_n": 0.0007354372359188591,
+        "range_n": 0.027369557720814567,
+        "z_r_60": -0.0005039591783365522,
+        "cep_i_below_lcl": 0.0065237651444548,
+        "cep_i_above_ucl": 0.004659832246039142,
+        "cep_mr_above_ucl": 0.01863932898415657,
+        "cep_xbar_below_lcl": 0.0009319664492078285,
+        "cep_xbar_above_ucl": 0.0009319664492078285,
+        "cep_r_above_ucl": 0.0130475302889096,
+        "dist_i_lcl": 0.03841503704141943,
+        "dist_i_ucl": 0.03949365485533005,
+        "dist_xbar_lcl": 0.02096827982649568,
+        "dist_xbar_ucl": 0.02167278831064881,
+        "stress_score": 0.025535880708294493,
+        "upside_score": 0.005405405405405405
+      },
+      "std_train": {
+        "r_t": 0.013455859985576427,
+        "mr_t": 0.012309691810264122,
+        "xbar_n": 0.006475045852907116,
+        "range_n": 0.01387524643833391,
+        "z_r_60": 0.9547264381857586,
+        "cep_i_below_lcl": 0.08050593538860783,
+        "cep_i_above_ucl": 0.06810373124490252,
+        "cep_mr_above_ucl": 0.13524756707304333,
+        "cep_xbar_below_lcl": 0.03051389663326132,
+        "cep_xbar_above_ucl": 0.030513896633261324,
+        "cep_r_above_ucl": 0.11347815755584953,
+        "dist_i_lcl": 0.013455859985576425,
+        "dist_i_ucl": 0.01345585998557643,
+        "dist_xbar_lcl": 0.006475045852907117,
+        "dist_xbar_ucl": 0.006475045852907116,
+        "stress_score": 0.15821793241165488,
+        "upside_score": 0.07229849490781538
+      }
+    },
+    "validation_metrics": {
+      "balanced_accuracy": 0.5652472527472527,
+      "auc": 0.5252808988764045,
+      "bull": {
+        "precision": 0.7950617283950617,
+        "recall": 0.9044943820224719,
+        "f1": 0.8462549277266754
+      },
+      "bear": {
+        "precision": 0.38181818181818183,
+        "recall": 0.20192307692307693,
+        "f1": 0.2641509433962264
+      }
+    },
+    "probability_calibration": "p_bull = rank_pct(p_bull_raw), monotônico, aplicado antes da histerese"
+  },
+  "threshold_hysteresis_min_days": {
+    "p_bull_enter": 0.55,
+    "p_bull_exit": 0.54,
+    "p_bear_enter": 0.45,
+    "p_bear_exit": 0.46,
+    "min_days": 5
+  },
+  "selection_score_definition": "score_final = balanced_accuracy_validation - 0.05 * misto_rate_validation",
+  "period_numeric_validation_summary": [
+    {
+      "period_mm_aa_range": "01/19–12/19",
+      "tipo": "BULL",
+      "start_date": "2019-01-02",
+      "end_date": "2019-12-30",
+      "close_start": 91012.0,
+      "close_end": 115964.0,
+      "period_return": 0.27416164901331697,
+      "period_drawdown": -0.10001600096005758,
+      "validation_pass": true,
+      "sample_weight": 1.0,
+      "validation_note": "pass_bull_gain"
+    },
+    {
+      "period_mm_aa_range": "10/22–12/23",
+      "tipo": "BULL",
+      "start_date": "2022-10-03",
+      "end_date": "2023-12-28",
+      "close_start": 116134.0,
+      "close_end": 134185.0,
+      "period_return": 0.15543251760896903,
+      "period_drawdown": -0.18346688457337257,
+      "validation_pass": false,
+      "sample_weight": 0.25,
+      "validation_note": "fail_bull_gain"
+    },
+    {
+      "period_mm_aa_range": "01/25–12/25",
+      "tipo": "BULL",
+      "start_date": "2025-01-02",
+      "end_date": "2025-12-30",
+      "close_start": 120125.0,
+      "close_end": 161125.0,
+      "period_return": 0.3413111342351718,
+      "period_drawdown": -0.06922320107548685,
+      "validation_pass": true,
+      "sample_weight": 1.0,
+      "validation_note": "pass_bull_gain"
+    },
+    {
+      "period_mm_aa_range": "04/20–12/21",
+      "tipo": "BEAR",
+      "start_date": "2020-04-01",
+      "end_date": "2021-12-30",
+      "close_start": 70967.0,
+      "close_end": 104822.0,
+      "period_return": 0.4770527146420167,
+      "period_drawdown": -0.22940753655104917,
+      "validation_pass": true,
+      "sample_weight": 1.0,
+      "validation_note": "pass_bear_drawdown"
+    },
+    {
+      "period_mm_aa_range": "01/22–10/22",
+      "tipo": "BEAR",
+      "start_date": "2022-01-03",
+      "end_date": "2022-10-31",
+      "close_start": 103922.0,
+      "close_end": 116037.0,
+      "period_return": 0.11657781797886879,
+      "period_drawdown": -0.20933618491404127,
+      "validation_pass": true,
+      "sample_weight": 1.0,
+      "validation_note": "pass_bear_drawdown"
+    },
+    {
+      "period_mm_aa_range": "08/24–12/24",
+      "tipo": "BEAR",
+      "start_date": "2024-08-01",
+      "end_date": "2024-12-30",
+      "close_start": 127395.0,
+      "close_end": 120283.0,
+      "period_return": -0.05582636681188424,
+      "period_drawdown": -0.12432286812674742,
+      "validation_pass": false,
+      "sample_weight": 0.25,
+      "validation_note": "fail_bear_drawdown"
+    }
+  ],
+  "class_distribution_daily": {
+    "BULL": 1232,
+    "BEAR": 624,
+    "MISTO": 7
+  },
+  "classes_reachable_bull_bear_gt0": true,
+  "cep_baseline_limits": {
+    "baseline_k": 60,
+    "subgroup_n": 4,
+    "i_lcl": -0.03767403496363875,
+    "i_ucl": 0.040234656933110804,
+    "mr_ucl": 0.04876289497233061,
+    "xbar_lcl": -0.020232842590576835,
+    "xbar_ucl": 0.0224082255465677,
+    "r_ucl": 0.06673999827775297
+  },
+  "threshold_search_top5": [
+    {
+      "p_bull_enter": 0.65,
+      "p_bull_exit_delta": 0.03,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.02,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5652472527472527,
+      "misto_rate_validation": 0.0,
+      "score_final": 0.5652472527472527
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.02,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.03,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5652472527472527,
+      "misto_rate_validation": 0.0,
+      "score_final": 0.5652472527472527
+    },
+    {
+      "p_bull_enter": 0.6,
+      "p_bull_exit_delta": 0.03,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.03,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5652472527472527,
+      "misto_rate_validation": 0.0,
+      "score_final": 0.5652472527472527
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.02,
+      "p_bear_enter": 0.3,
+      "p_bear_exit_delta": 0.01,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5652472527472527,
+      "misto_rate_validation": 0.0,
+      "score_final": 0.5652472527472527
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.03,
+      "p_bear_enter": 0.3,
+      "p_bear_exit_delta": 0.01,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5652472527472527,
+      "misto_rate_validation": 0.0,
+      "score_final": 0.5652472527472527
+    }
+  ]
+}

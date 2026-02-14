@@ -1,0 +1,4 @@
+TASK: TASK_CEP_COMPRA_EXP_003B_MASTER_REGIME_V7_5STATE_AND_BUYCONFUSION_DUALINDEX_V1
+PASS: allowlist CEP_COMPRA only
+PASS: out_dir=/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state
+PASS: ssot=/home/wilson/CEP_COMPRA/ssot_cycle2/master_regime_classifier_v7.json

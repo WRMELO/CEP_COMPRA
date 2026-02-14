@@ -1,0 +1,63 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_003B_MASTER_REGIME_V7_5STATE_AND_BUYCONFUSION_DUALINDEX_V1",
+  "inputs": {
+    "repo_root": "/home/wilson/CEP_COMPRA",
+    "python_exec": "/home/wilson/PortfolioZero/.venv/bin/python",
+    "price_source": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/series_alinhadas_plot.parquet",
+      "method": "autodiscovery",
+      "selected": "/home/wilson/CEP_COMPRA/outputs/backtests/task_012/run_20260212_114129/consolidated/series_alinhadas_plot.parquet",
+      "score": 5,
+      "selected_columns": [
+        "date",
+        "M0_equity_idx",
+        "M1_equity_idx",
+        "cdi_index",
+        "sp500_index",
+        "bvsp_index",
+        "cdi_index_norm",
+        "sp500_index_norm",
+        "bvsp_index_norm"
+      ],
+      "candidates_found": 5
+    },
+    "master_index_ticker": "^BVSP",
+    "validation_index_ticker": "^GSPC"
+  },
+  "outputs": {
+    "close_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/close_bvsp.parquet",
+    "close_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/close_gspc.parquet",
+    "labels_theory_5state_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_theory_5state_bvsp.parquet",
+    "labels_theory_5state_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_theory_5state_gspc.parquet",
+    "labels_buy3_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_buy3_bvsp.parquet",
+    "labels_buy3_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_buy3_gspc.parquet",
+    "cep_features_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/cep_features_bvsp.parquet",
+    "cep_features_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/cep_features_gspc.parquet",
+    "model_fit_summary_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/model_fit_summary.json",
+    "threshold_search_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/threshold_search_results.parquet",
+    "regime_daily_bvsp_5state_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/regime_daily_bvsp_5state.parquet",
+    "regime_daily_gspc_5state_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/regime_daily_gspc_5state.parquet",
+    "buy_level_daily_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/buy_level_daily_bvsp.parquet",
+    "buy_level_daily_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/buy_level_daily_gspc.parquet",
+    "confusion_5state_counts_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/confusion_5state_counts.json",
+    "confusion_buy3_counts_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/confusion_buy3_counts.json",
+    "ssot_master_regime_classifier_v7_json": "/home/wilson/CEP_COMPRA/ssot_cycle2/master_regime_classifier_v7.json",
+    "report_md_autocontido": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/report.md",
+    "manifest_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/manifest.json",
+    "hashes_sha256": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/hashes.sha256"
+  },
+  "gates": {
+    "S1_GATE_ALLOWLIST_CEP_COMPRA_ONLY": "PASS",
+    "S2_CHECK_COMPILE_OR_IMPORTS": "PASS",
+    "S3_BUILD_CLOSE_AND_THEORY_LABELS_5STATE_BVSP_GSPC": "PASS",
+    "S4_BUILD_BUY3_LABELS_FROM_5STATE": "PASS",
+    "S5_BUILD_CEP_FEATURES_EXOG_BVSP_GSPC": "PASS",
+    "S6_FIT_INTERPRETABLE_MODEL_ON_BVSP_THRESHOLD_SEARCH": "PASS",
+    "S7_VALIDATE_ON_GSPC_NO_REFIT": "PASS",
+    "S8_GENERATE_CONFUSIONS_5STATE_AND_BUY3_COUNTS": "PASS",
+    "S9_VERIFY_5STATES_REACHABLE_AND_MIDDLE_STATES_DOMINANT": "PASS",
+    "S10_ANTI_LEAKAGE_AUDIT_DMINUS1": "PASS",
+    "S11_WRITE_SSOT_V7_EXPLICIT_FORMULA_PSEUDOCODE_AND_BUY_MAPPING": "PASS",
+    "S12_GENERATE_MD_AUTOCONTIDO_MANIFEST_HASHES": "PASS"
+  }
+}

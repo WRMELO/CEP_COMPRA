@@ -1,0 +1,191 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002B_MASTER_REGIME_SUPERVISED_FROM_PRICE_THEORY_DUALINDEX_V1",
+  "version": "v5",
+  "master_index_ticker": "^BVSP",
+  "validation_index_ticker": "^GSPC",
+  "constraints": {
+    "no_endogenous_features": true,
+    "price_based_only_for_labels": true
+  },
+  "price_theory_labeling": {
+    "lookback_days_for_peaks_troughs": 252,
+    "bull_threshold": 0.2,
+    "bear_threshold": -0.2,
+    "neutral_band": 0.1,
+    "min_days": 5,
+    "hysteresis": {
+      "bull_exit_neutral": 0.1,
+      "bear_exit_neutral": -0.1
+    }
+  },
+  "model": {
+    "chosen_model": "logistic_regression",
+    "formula_explicit": "p_bull = sigmoid(intercept + Σ(coef_i * z_i)); z_i=(x_i-mean_train_i)/std_train_i",
+    "formula_parameters": {
+      "intercept": 1.4892764078058216,
+      "coefficients": {
+        "r_t": 0.31264255673168695,
+        "mr_t": -0.09749167764808908,
+        "xbar_n": -0.14848183620062802,
+        "range_n": -0.12068682364242753,
+        "z_r_60": -0.8680729441411009,
+        "cep_i_below_lcl": 0.07862093348146922,
+        "cep_i_above_ucl": -0.14063621522331288,
+        "cep_mr_above_ucl": 0.16795844882280903,
+        "cep_xbar_below_lcl": 0.06382231556586453,
+        "cep_xbar_above_ucl": -0.1541767838725378,
+        "cep_r_above_ucl": -0.44670858137311825,
+        "dist_i_lcl": 0.31264255673168784,
+        "dist_i_ucl": -0.312642556731688,
+        "dist_xbar_lcl": -0.14848183620062738,
+        "dist_xbar_ucl": 0.14848183620062896,
+        "stress_score": 0.013251485379392518,
+        "upside_score": -0.18520590215857163
+      }
+    },
+    "features_used": [
+      "r_t",
+      "mr_t",
+      "xbar_n",
+      "range_n",
+      "z_r_60",
+      "cep_i_below_lcl",
+      "cep_i_above_ucl",
+      "cep_mr_above_ucl",
+      "cep_xbar_below_lcl",
+      "cep_xbar_above_ucl",
+      "cep_r_above_ucl",
+      "dist_i_lcl",
+      "dist_i_ucl",
+      "dist_xbar_lcl",
+      "dist_xbar_ucl",
+      "stress_score",
+      "upside_score"
+    ],
+    "normalization": {
+      "mean_train": {
+        "r_t": 0.0004198954258247841,
+        "mr_t": 0.01756144486005823,
+        "xbar_n": 0.00037576494022831133,
+        "range_n": 0.031032374118287295,
+        "z_r_60": -0.019324554415866193,
+        "cep_i_below_lcl": 0.01864035087719298,
+        "cep_i_above_ucl": 0.008771929824561403,
+        "cep_mr_above_ucl": 0.03618421052631579,
+        "cep_xbar_below_lcl": 0.015350877192982455,
+        "cep_xbar_above_ucl": 0.0043859649122807015,
+        "cep_r_above_ucl": 0.03837719298245614,
+        "dist_i_lcl": 0.038093930389463494,
+        "dist_i_ucl": 0.03981476150728603,
+        "dist_xbar_lcl": 0.02060860753080512,
+        "dist_xbar_ucl": 0.02203246060633937,
+        "stress_score": 0.07160087719298248,
+        "upside_score": 0.012280701754385965
+      },
+      "std_train": {
+        "r_t": 0.018267183480632054,
+        "mr_t": 0.022100717228608135,
+        "xbar_n": 0.008360301449747502,
+        "range_n": 0.02763247443236857,
+        "z_r_60": 1.0280722502202162,
+        "cep_i_below_lcl": 0.1352512040477574,
+        "cep_i_above_ucl": 0.09324689309416266,
+        "cep_mr_above_ucl": 0.18674826220049176,
+        "cep_xbar_below_lcl": 0.12294400254745572,
+        "cep_xbar_above_ucl": 0.06608122444438284,
+        "cep_r_above_ucl": 0.19210513798762546,
+        "dist_i_lcl": 0.01826718348063205,
+        "dist_i_ucl": 0.01826718348063205,
+        "dist_xbar_lcl": 0.008360301449747502,
+        "dist_xbar_ucl": 0.008360301449747505,
+        "stress_score": 0.3426778938691476,
+        "upside_score": 0.11481514576811319
+      }
+    },
+    "probability_calibration": "rank_pct monotônico"
+  },
+  "threshold_hysteresis_min_days_operational": {
+    "p_bull_enter": 0.6,
+    "p_bull_exit": 0.59,
+    "p_bear_enter": 0.3,
+    "p_bear_exit": 0.31,
+    "min_days": 5,
+    "neutral_extra_band": 0.06,
+    "prob_shift": 0.0
+  },
+  "evaluation": {
+    "calibration_bvsp": {
+      "macro_f1": 0.36001523326918133,
+      "balanced_accuracy_binary_bull": 0.515977516023866,
+      "switches_per_year": 5.545893719806763,
+      "class_distribution": {
+        "MISTO": 768,
+        "BULL": 767,
+        "BEAR": 328
+      },
+      "confusion_counts_3state": {
+        "BULL": {
+          "BULL": 477,
+          "BEAR": 136,
+          "MISTO": 511
+        },
+        "BEAR": {
+          "BULL": 11,
+          "BEAR": 81,
+          "MISTO": 87
+        },
+        "MISTO": {
+          "BULL": 279,
+          "BEAR": 111,
+          "MISTO": 170
+        }
+      }
+    },
+    "validation_gspc_no_refit": {
+      "macro_f1": 0.32438459108686063,
+      "balanced_accuracy_binary_bull": 0.6430009327449152,
+      "switches_per_year": 6.08695652173913,
+      "class_distribution": {
+        "MISTO": 874,
+        "BULL": 647,
+        "BEAR": 342
+      },
+      "confusion_counts_3state": {
+        "BULL": {
+          "BULL": 568,
+          "BEAR": 190,
+          "MISTO": 560
+        },
+        "BEAR": {
+          "BULL": 6,
+          "BEAR": 44,
+          "MISTO": 171
+        },
+        "MISTO": {
+          "BULL": 73,
+          "BEAR": 108,
+          "MISTO": 143
+        }
+      }
+    },
+    "neutral_dominance_requirement": {
+      "required_misto_ratio": 0.3,
+      "bvsp_misto_ratio": 0.41223832528180354,
+      "gspc_misto_ratio": 0.4691358024691358,
+      "pass": true
+    },
+    "states_reachable": {
+      "bvsp": {
+        "MISTO": 768,
+        "BULL": 767,
+        "BEAR": 328
+      },
+      "gspc": {
+        "MISTO": 874,
+        "BULL": 647,
+        "BEAR": 342
+      },
+      "pass": true
+    }
+  }
+}

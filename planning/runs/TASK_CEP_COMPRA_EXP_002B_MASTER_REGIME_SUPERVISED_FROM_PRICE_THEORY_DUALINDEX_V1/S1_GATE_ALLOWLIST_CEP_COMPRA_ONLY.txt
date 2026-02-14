@@ -1,0 +1,4 @@
+TASK: TASK_CEP_COMPRA_EXP_002B_MASTER_REGIME_SUPERVISED_FROM_PRICE_THEORY_DUALINDEX_V1
+PASS: execução restrita ao repo /home/wilson/CEP_COMPRA
+PASS: outputs em /home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002B_master_regime_supervised_price_theory_v1
+PASS: ssot v5 em /home/wilson/CEP_COMPRA/ssot_cycle2/master_regime_classifier_v5.json

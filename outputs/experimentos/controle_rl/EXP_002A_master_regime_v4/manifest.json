@@ -1,0 +1,52 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_WEAKLABELS_V4",
+  "inputs": {
+    "repo_root": "/home/wilson/CEP_COMPRA",
+    "master_ticker": "^BVSP",
+    "master_series_path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214446/data/bvsp_index.parquet",
+    "master_series_discovery": {
+      "method": "preferred_parquet_globs",
+      "candidates_found": 3,
+      "accepted_candidates": [
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214446/data/bvsp_index.parquet",
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/bvsp_index.parquet",
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/bvsp_index.parquet"
+      ]
+    },
+    "weak_label_source": {
+      "method": "user_text_weak_indication",
+      "bull_years": [
+        2019,
+        2023,
+        2025
+      ],
+      "bear_years": [
+        2021,
+        2022,
+        2024
+      ],
+      "notes": "Fallback intencional: não foi encontrado JSON mensal no repositório pelos globs informados."
+    }
+  },
+  "outputs": {
+    "master_logret_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/master_logret_daily.parquet",
+    "master_cep_features_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/master_cep_features_daily.parquet",
+    "master_cep_features_daily_csv": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/master_cep_features_daily.csv",
+    "weaklabels_daily_audit_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/weaklabels_daily_audit.parquet",
+    "ssot_master_regime_v4_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/ssot_cycle2/master_regime_classifier_v4.json",
+    "regime_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/regime_daily.parquet",
+    "report_md": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/report.md",
+    "manifest_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/manifest.json",
+    "hashes_sha256": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4/hashes.sha256"
+  },
+  "gates": {
+    "S1_GATE_ALLOWLIST": "PASS",
+    "S2_AUTODISCOVER_INPUTS": "PASS",
+    "S3_BUILD_DAILY_LOGRET_AND_CEP_FEATURES": "PASS",
+    "S4_BUILD_WEAKLABELS_DAILY_FROM_MONTHLY": "PASS",
+    "S5_FIT_INTERPRETABLE_MODEL_AND_THRESHOLD_SEARCH": "PASS",
+    "S6_VERIFY_CLASSES_REACHABLE": "PASS",
+    "S7_WRITE_SSOT_V4_WITH_EXPLICIT_FORMULA": "PASS",
+    "S8_GENERATE_MD_AUTOCONTIDO_AND_MANIFEST": "PASS"
+  }
+}

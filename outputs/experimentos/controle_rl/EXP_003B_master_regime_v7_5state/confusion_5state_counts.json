@@ -1,0 +1,76 @@
+{
+  "confusion_5state_counts_bvsp": {
+    "BULL": {
+      "BULL": 198,
+      "CORR_BULL_NEUTRO": 465,
+      "NEUTRO": 22,
+      "CORR_NEUTRO_BEAR": 128,
+      "BEAR": 67
+    },
+    "CORR_BULL_NEUTRO": {
+      "BULL": 125,
+      "CORR_BULL_NEUTRO": 172,
+      "NEUTRO": 1,
+      "CORR_NEUTRO_BEAR": 28,
+      "BEAR": 41
+    },
+    "NEUTRO": {
+      "BULL": 0,
+      "CORR_BULL_NEUTRO": 15,
+      "NEUTRO": 67,
+      "CORR_NEUTRO_BEAR": 10,
+      "BEAR": 0
+    },
+    "CORR_NEUTRO_BEAR": {
+      "BULL": 91,
+      "CORR_BULL_NEUTRO": 78,
+      "NEUTRO": 10,
+      "CORR_NEUTRO_BEAR": 180,
+      "BEAR": 28
+    },
+    "BEAR": {
+      "BULL": 31,
+      "CORR_BULL_NEUTRO": 7,
+      "NEUTRO": 0,
+      "CORR_NEUTRO_BEAR": 21,
+      "BEAR": 78
+    }
+  },
+  "confusion_5state_counts_gspc": {
+    "BULL": {
+      "BULL": 144,
+      "CORR_BULL_NEUTRO": 807,
+      "NEUTRO": 59,
+      "CORR_NEUTRO_BEAR": 100,
+      "BEAR": 66
+    },
+    "CORR_BULL_NEUTRO": {
+      "BULL": 10,
+      "CORR_BULL_NEUTRO": 99,
+      "NEUTRO": 12,
+      "CORR_NEUTRO_BEAR": 48,
+      "BEAR": 5
+    },
+    "NEUTRO": {
+      "BULL": 22,
+      "CORR_BULL_NEUTRO": 0,
+      "NEUTRO": 64,
+      "CORR_NEUTRO_BEAR": 10,
+      "BEAR": 35
+    },
+    "CORR_NEUTRO_BEAR": {
+      "BULL": 0,
+      "CORR_BULL_NEUTRO": 5,
+      "NEUTRO": 0,
+      "CORR_NEUTRO_BEAR": 182,
+      "BEAR": 119
+    },
+    "BEAR": {
+      "BULL": 0,
+      "CORR_BULL_NEUTRO": 0,
+      "NEUTRO": 0,
+      "CORR_NEUTRO_BEAR": 10,
+      "BEAR": 66
+    }
+  }
+}

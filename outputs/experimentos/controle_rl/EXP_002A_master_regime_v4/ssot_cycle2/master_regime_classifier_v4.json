@@ -1,0 +1,230 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_WEAKLABELS_V4",
+  "version": "v4",
+  "master_ticker": "^BVSP",
+  "input_discovery": {
+    "master_series": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214446/data/bvsp_index.parquet",
+      "method": "preferred_parquet_globs",
+      "candidates_found": 3,
+      "accepted_candidates": [
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214446/data/bvsp_index.parquet",
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214315/data/bvsp_index.parquet",
+        "/home/wilson/CEP_COMPRA/outputs/plots/task_007/run_20260211_214244/data/bvsp_index.parquet"
+      ]
+    },
+    "weak_monthly_source": {
+      "method": "user_text_weak_indication",
+      "bull_years": [
+        2019,
+        2023,
+        2025
+      ],
+      "bear_years": [
+        2021,
+        2022,
+        2024
+      ],
+      "notes": "Fallback intencional: não foi encontrado JSON mensal no repositório pelos globs informados."
+    }
+  },
+  "labeling_policy": {
+    "classes": [
+      "BULL",
+      "BEAR",
+      "MISTO"
+    ],
+    "weak_label_source": "mensal (texto fraco informado pelo usuário)",
+    "misto_definition": "dias onde o modelo não entra em BULL nem BEAR após histerese/min_days"
+  },
+  "cep_features_spec": {
+    "exogenous_only": true,
+    "forbidden_name_patterns": [
+      "*positions*",
+      "*n_positions*",
+      "*portfolio_state*",
+      "*risk_on*",
+      "*buys*",
+      "*sells*",
+      "*turnover*"
+    ],
+    "features_used": [
+      "r_t",
+      "mr_t",
+      "xbar_n",
+      "range_n",
+      "z_r_60",
+      "cep_i_below_lcl",
+      "cep_i_above_ucl",
+      "cep_mr_above_ucl",
+      "cep_xbar_below_lcl",
+      "cep_xbar_above_ucl",
+      "cep_r_above_ucl",
+      "dist_i_lcl",
+      "dist_i_ucl",
+      "dist_xbar_lcl",
+      "dist_xbar_ucl",
+      "stress_score",
+      "upside_score"
+    ]
+  },
+  "model": {
+    "chosen_model": "logistic_regression",
+    "formula_explicit": "p_bull = sigmoid(intercept + Σ(coef_i * z_i)); z_i=(x_i-mean_train_i)/std_train_i",
+    "formula_parameters": {
+      "intercept": -0.11711171857106106,
+      "coefficients": {
+        "r_t": 0.06009226678989328,
+        "mr_t": -0.07080629529942752,
+        "xbar_n": 0.05900858463262641,
+        "range_n": -0.18492030506929857,
+        "z_r_60": -0.18381606050501678,
+        "cep_i_below_lcl": 0.02964846095589969,
+        "cep_i_above_ucl": 0.005640117816195686,
+        "cep_mr_above_ucl": -0.022309218099354627,
+        "cep_xbar_below_lcl": 0.0,
+        "cep_xbar_above_ucl": 0.0,
+        "cep_r_above_ucl": -0.1805608864997752,
+        "dist_i_lcl": 0.060092266789893094,
+        "dist_i_ucl": -0.06009226678989355,
+        "dist_xbar_lcl": 0.05900858463262656,
+        "dist_xbar_ucl": -0.0590085846326268,
+        "stress_score": -0.03243212042383802,
+        "upside_score": 0.0056401178161956675
+      }
+    },
+    "normalization": {
+      "mean_train": {
+        "r_t": 0.00032443699292437374,
+        "mr_t": 0.013467830472382269,
+        "xbar_n": 0.00035431377797457894,
+        "range_n": 0.024557246021960005,
+        "z_r_60": -0.01756371112274173,
+        "cep_i_below_lcl": 0.0038240917782026767,
+        "cep_i_above_ucl": 0.0019120458891013384,
+        "cep_mr_above_ucl": 0.010516252390057362,
+        "cep_xbar_below_lcl": 0.0,
+        "cep_xbar_above_ucl": 0.0,
+        "cep_r_above_ucl": 0.0028680688336520078,
+        "dist_i_lcl": 0.03799847195656304,
+        "dist_i_ucl": 0.03991021994018638,
+        "dist_xbar_lcl": 0.02058715636855139,
+        "dist_xbar_ucl": 0.022053911768593108,
+        "stress_score": 0.01233269598470363,
+        "upside_score": 0.0019120458891013384
+      },
+      "std_train": {
+        "r_t": 0.01204231074905518,
+        "mr_t": 0.010733655939539209,
+        "xbar_n": 0.005864495527758604,
+        "range_n": 0.011909230560511042,
+        "z_r_60": 0.9786195503487605,
+        "cep_i_below_lcl": 0.061720888686688485,
+        "cep_i_above_ucl": 0.043685122978186886,
+        "cep_mr_above_ucl": 0.10200814097769738,
+        "cep_xbar_below_lcl": 1.0,
+        "cep_xbar_above_ucl": 1.0,
+        "cep_r_above_ucl": 0.053477500080102984,
+        "dist_i_lcl": 0.012042310749055173,
+        "dist_i_ucl": 0.012042310749055186,
+        "dist_xbar_lcl": 0.005864495527758604,
+        "dist_xbar_ucl": 0.005864495527758606,
+        "stress_score": 0.1117859032532888,
+        "upside_score": 0.043685122978186886
+      }
+    },
+    "validation_metrics": {
+      "balanced_accuracy": 0.6013939393939394,
+      "auc": 0.5035151515151515,
+      "bull": {
+        "precision": 0.7714285714285715,
+        "recall": 0.324,
+        "f1": 0.45633802816901414
+      },
+      "bear": {
+        "precision": 0.5072886297376094,
+        "recall": 0.8787878787878788,
+        "f1": 0.6432532347504621
+      }
+    }
+  },
+  "threshold_hysteresis_min_days": {
+    "p_bull_enter": 0.55,
+    "p_bull_exit": 0.54,
+    "p_bear_enter": 0.45,
+    "p_bear_exit": 0.46,
+    "min_days": 5
+  },
+  "threshold_search_top5": [
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.01,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.01,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.6013939393939394,
+      "misto_rate_validation": 0.734375,
+      "score_final": 0.5646751893939393
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.01,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.02,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.6013939393939394,
+      "misto_rate_validation": 0.734375,
+      "score_final": 0.5646751893939393
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.01,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.03,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.6013939393939394,
+      "misto_rate_validation": 0.734375,
+      "score_final": 0.5646751893939393
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.03,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.02,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5972929292929293,
+      "misto_rate_validation": 0.71875,
+      "score_final": 0.5613554292929294
+    },
+    {
+      "p_bull_enter": 0.55,
+      "p_bull_exit_delta": 0.03,
+      "p_bear_enter": 0.45,
+      "p_bear_exit_delta": 0.03,
+      "min_days": 5,
+      "balanced_accuracy_validation": 0.5972929292929293,
+      "misto_rate_validation": 0.71875,
+      "score_final": 0.5613554292929294
+    }
+  ],
+  "cep_baseline_limits": {
+    "baseline_k": 60,
+    "subgroup_n": 4,
+    "i_mean": 0.00128031098473604,
+    "i_std": 0.012984781982791585,
+    "i_lcl": -0.03767403496363871,
+    "i_ucl": 0.0402346569331108,
+    "mr_ucl": 0.04876289497233055,
+    "xbar_lcl": -0.020232842590576814,
+    "xbar_ucl": 0.022408225546567694,
+    "r_ucl": 0.06673999827775293
+  },
+  "class_reachability": {
+    "days_bull": 181,
+    "days_bear": 588,
+    "days_misto": 1094,
+    "min_required_each_bull_bear": 30,
+    "pass": true,
+    "note": "OK"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_002A_MASTER_REGIME_DAILY_FROM_MONTHLY_TABLE_V4C",
+  "inputs": {
+    "repo_root": "/home/wilson/CEP_COMPRA",
+    "python_exec": "/home/wilson/PortfolioZero/.venv/bin/python",
+    "master_ticker": "^BVSP",
+    "table_parse_contract": {
+      "required_columns": [
+        "period_mm_aa_range",
+        "tipo"
+      ],
+      "period_format": "MM/YY–MM/YY",
+      "tipo_map": {
+        "Bull": "BULL",
+        "Bear": "BEAR"
+      },
+      "expected_rows": 6,
+      "date_interpretation_rule": {
+        "start_month": "primeiro pregão do mês inicial",
+        "end_month": "último pregão do mês final",
+        "inclusive": true
+      }
+    },
+    "master_series_source": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_close_daily.parquet",
+      "method": "autodiscover_globs",
+      "candidates_found": 4,
+      "accepted_count": 4,
+      "selected": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_close_daily.parquet",
+      "selected_columns": [
+        "close",
+        "date",
+        "master_ticker"
+      ]
+    }
+  },
+  "outputs": {
+    "monthly_ssot_source_md": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/monthly_ssot_source.md",
+    "monthly_regime_structured_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/monthly_regime_structured.parquet",
+    "monthly_regime_structured_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/monthly_regime_structured.json",
+    "master_close_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_close_daily.parquet",
+    "master_logret_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_logret_daily.parquet",
+    "master_cep_features_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/master_cep_features_daily.parquet",
+    "weaklabels_daily_audit_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/weaklabels_daily_audit.parquet",
+    "period_numeric_validation_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/period_numeric_validation.parquet",
+    "ssot_master_regime_v4_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/ssot_cycle2/master_regime_classifier_v4.json",
+    "regime_daily_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/regime_daily.parquet",
+    "regime_daily_csv": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/regime_daily.csv",
+    "report_md": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/report.md",
+    "manifest_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/manifest.json",
+    "hashes_sha256": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_002A_master_regime_v4c/hashes.sha256"
+  },
+  "gates": {
+    "S1_GATE_ALLOWLIST_CEP_COMPRA_ONLY": "PASS",
+    "S2_WRITE_AND_PARSE_MONTHLY_TABLE": "PASS",
+    "S3_BUILD_MASTER_CLOSE_LOGRET_AND_CEP_FEATURES_EXOG": "PASS",
+    "S4_BUILD_STRUCTURED_MONTHLY_AND_DAILY_WEAKLABELS": "PASS",
+    "S5_VALIDATE_PERIODS_NUMERICALLY_AND_ASSIGN_WEIGHTS": "PASS",
+    "S6_FIT_INTERPRETABLE_MODEL_AND_THRESHOLD_SEARCH": "PASS",
+    "S7_VERIFY_BULL_AND_BEAR_REACHABLE_DAILY": "PASS",
+    "S8_WRITE_SSOT_V4_WITH_EXPLICIT_FORMULA": "PASS",
+    "S9_GENERATE_MD_AUTOCONTIDO_AND_MANIFEST_HASHES": "PASS"
+  }
+}
