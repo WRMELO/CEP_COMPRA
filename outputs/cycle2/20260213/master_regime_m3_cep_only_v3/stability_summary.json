@@ -1,0 +1,19 @@
+{
+  "switches_validation": 29,
+  "duration_avg_days_by_regime_validation": {
+    "BULL": 16.2,
+    "TRANSICAO": 6.133333333333334
+  },
+  "duration_median_days_by_regime_validation": {
+    "BULL": 10.0,
+    "TRANSICAO": 4.0
+  },
+  "distribution_days_validation": {
+    "BULL": 243,
+    "TRANSICAO": 92
+  },
+  "distribution_pct_validation": {
+    "BULL": 0.7253731343283583,
+    "TRANSICAO": 0.2746268656716418
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "validation_counts_w1_vs_w2_with_transition_as_error": {
+    "tp_w1_pred_bull": 173,
+    "fn_w1_pred_not_bull": 49,
+    "tn_w2_pred_bear": 0,
+    "fp_w2_pred_not_bear": 113,
+    "transition_count_validation": 92
+  }
+}

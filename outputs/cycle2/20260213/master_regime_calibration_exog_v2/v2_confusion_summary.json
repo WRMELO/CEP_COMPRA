@@ -1,0 +1,24 @@
+{
+  "scenario_winner_bear": "W2",
+  "balanced_accuracy": 0.11758558558558559,
+  "matrix_2x2_collapsed_transition_as_error": {
+    "tp_W1_pred_BULL": 28,
+    "fn_W1_pred_not_BULL": 712,
+    "tn_BEAR_pred_BEAR": 74,
+    "fp_BEAR_pred_not_BEAR": 301
+  },
+  "matrix_detail_true_vs_pred": {
+    "BEAR": {
+      "W1": 43,
+      "W2": 74
+    },
+    "BULL": {
+      "W1": 28,
+      "W2": 0
+    },
+    "TRANSICAO": {
+      "W1": 669,
+      "W2": 301
+    }
+  }
+}

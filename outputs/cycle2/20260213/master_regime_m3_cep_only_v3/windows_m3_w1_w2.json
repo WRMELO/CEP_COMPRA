@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001D_MASTER_REGIME_M3_CEP_ONLY_V3",
+  "source": "M3 artifacts",
+  "windows": {
+    "W1": {
+      "start": "2018-07-02",
+      "end": "2021-06-30"
+    },
+    "W2": {
+      "start": "2021-07-01",
+      "end": "2022-12-30"
+    }
+  },
+  "evidence": [
+    {
+      "path": "/home/wilson/CEP_COMPRA/outputs/reports/task_018/run_20260212_134037/analise_consolidada_fases_m0_m1_m3.md",
+      "excerpt": "W1 | 2018-07-02..2021-06-30 ; W2 | 2021-07-01..2022-12-30"
+    },
+    {
+      "path": "/home/wilson/CEP_COMPRA/outputs/backtests/task_021_m6/run_20260213_122019/m6_vs_m3_and_others_analysis_autossuficiente.md",
+      "excerpt": "Comparação por fases W1/W2/W3 (M3 vs M6)"
+    }
+  ],
+  "master_series_source": {
+    "path": "/home/wilson/CEP_NA_BOLSA/outputs/ssot/precos_brutos/ibov/brapi/20260204/xt_ibov.csv",
+    "ticker": "^BVSP",
+    "log_return_definition": "r_t = xt_ibov (log-retorno diário já fornecido no SSOT do IBOV)"
+  }
+}

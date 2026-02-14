@@ -1,0 +1,24 @@
+{
+  "scenario_winner_bear": "W2",
+  "regime_switches": 76,
+  "avg_duration_days_by_regime": {
+    "BEAR": 6.828571428571428,
+    "BULL": 9.333333333333334,
+    "TRANSICAO": 44.69230769230769
+  },
+  "median_duration_days_by_regime": {
+    "BEAR": 5.0,
+    "BULL": 8.0,
+    "TRANSICAO": 31.0
+  },
+  "regime_distribution_days": {
+    "TRANSICAO": 1743,
+    "BEAR": 239,
+    "BULL": 28
+  },
+  "regime_distribution_pct": {
+    "TRANSICAO": 0.8671641791044776,
+    "BEAR": 0.11890547263681592,
+    "BULL": 0.013930348258706468
+  }
+}

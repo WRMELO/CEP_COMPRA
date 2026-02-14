@@ -1,0 +1,8 @@
+TASK: TASK_CEP_CYCLE2_001B_MASTER_REGIME_EXOG_RECALIBRATION_V2
+PASS: leituras restritas a:
+- /home/wilson/CEP_NA_BOLSA
+- /home/wilson/CEP_COMPRA
+- /home/wilson/PortfolioZero
+- /home/wilson/CEP_COMPRA/outputs
+PASS: escrita restrita a:
+- /home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration_exog_v2

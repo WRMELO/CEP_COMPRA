@@ -1,0 +1,85 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001B_MASTER_REGIME_EXOG_RECALIBRATION_V2",
+  "base_dir": "outputs/cycle2/20260213/master_regime_calibration_exog_v2",
+  "inputs": {
+    "v1_artifacts_dir": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration",
+    "endogenous_feature_name_patterns": [
+      "*n_positions*",
+      "*portfolio_state*",
+      "*positions*",
+      "*risk_on*"
+    ],
+    "hard_exclude_features": [
+      "sinais_cep_n_positions_m6",
+      "sinais_cep_portfolio_state_risk_on"
+    ],
+    "quality_gates_for_v2_freeze": {
+      "min_balanced_accuracy": 0.58,
+      "max_switches_multiplier_vs_v1": 1.2,
+      "must_have_zero_endogenous_features": true
+    }
+  },
+  "v1_inputs_sha256": {
+    "ssot_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/ssot_cycle2/master_regime_classifier_v1.json",
+      "sha256": "79e97b585fad790f63a776f3181e5efcc73a641b63e70cd838c48ce99c86259e"
+    },
+    "confusion_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/confusion_summary.json",
+      "sha256": "2d5eeebcc8f6682358fc631507a3468a5e752bcf7a1311e43d433504e460e794"
+    },
+    "stability_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/stability_summary.json",
+      "sha256": "11fce88b7a5b3287614355f12a5931866aa2b47351959c34932bba5464954370"
+    },
+    "candidate_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/candidate_thresholds.parquet",
+      "sha256": "1ba6e3149642a2e35f94b8e7b791ed6cb02e5f722debb883935d05ad111a4c89"
+    },
+    "feature_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/feature_scores.parquet",
+      "sha256": "1cd80486aa65cc689cbd3fccd1d8c8df38b83267f48d8a800ac42691f735ec8a"
+    },
+    "master_signals_v1": {
+      "path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/master_signals_daily.parquet",
+      "sha256": "05455ddd720a43a0a3ab12fa9a39a8931eac99f89c1bba8f1c83268374808efd"
+    }
+  },
+  "gates": {
+    "G1_MD_AUTOCONTIDO": "PASS",
+    "G2_NO_ENDOGENOUS_IN_V2": "PASS",
+    "G3_OVERALL_PASS": "FAIL"
+  },
+  "freeze_decision": {
+    "status": "FAIL",
+    "gates": {
+      "min_balanced_accuracy": 0.58,
+      "max_switches_multiplier_vs_v1": 1.2,
+      "must_have_zero_endogenous_features": true,
+      "gate_balanced_accuracy_pass": false,
+      "gate_switches_pass": true,
+      "gate_zero_endogenous_pass": true
+    },
+    "comparative_numbers": {
+      "balanced_accuracy_v1": 0.6312196812196812,
+      "balanced_accuracy_v2": 0.11758558558558559,
+      "switches_v1": 129,
+      "switches_v2": 76,
+      "switches_limit_v2": 154.79999999999998
+    },
+    "active_model_after_decision": "v1"
+  },
+  "artifacts": [
+    "v1_rule_dump_autocontido.md",
+    "v2_regime_daily_signals.parquet",
+    "v2_regime_daily_signals.csv",
+    "v2_feature_scores.parquet",
+    "v2_candidate_thresholds.parquet",
+    "v2_confusion_summary.json",
+    "v2_stability_summary.json",
+    "ssot_cycle2/master_regime_classifier_v2.json",
+    "regime_calibration_comparison_v1_vs_v2.md",
+    "manifest.json",
+    "hashes.sha256"
+  ]
+}

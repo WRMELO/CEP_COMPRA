@@ -1,0 +1,8 @@
+TASK: TASK_CEP_CYCLE2_001D_MASTER_REGIME_M3_CEP_ONLY_V3
+PASS: leituras dentro de repo_roots_candidate + outputs/
+- /home/wilson/CEP_NA_BOLSA
+- /home/wilson/CEP_COMPRA
+- /home/wilson/PortfolioZero
+- /home/wilson/CEP_COMPRA/outputs
+PASS: escrita apenas em:
+- /home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_m3_cep_only_v3

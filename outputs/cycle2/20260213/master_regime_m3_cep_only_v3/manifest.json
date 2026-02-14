@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK_CEP_CYCLE2_001D_MASTER_REGIME_M3_CEP_ONLY_V3",
+  "base_dir": "outputs/cycle2/20260213/master_regime_m3_cep_only_v3",
+  "artifacts": [
+    "revogacao_ssot_v1.md",
+    "windows_m3_w1_w2.json",
+    "master_logret_daily.parquet",
+    "master_cep_features_daily.parquet",
+    "master_cep_features_daily.csv",
+    "model_fit_summary.json",
+    "threshold_search_results.parquet",
+    "confusion_counts.json",
+    "metrics_summary.json",
+    "stability_summary.json",
+    "ssot_cycle2/master_regime_classifier_v3.json",
+    "master_regime_m3_cep_only_v3_report.md",
+    "manifest.json",
+    "hashes.sha256"
+  ],
+  "revoked_ssot_v1_path": "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/ssot_cycle2/master_regime_classifier_v1.json",
+  "critical_input_hashes": {
+    "/home/wilson/CEP_COMPRA/outputs/reports/task_018/run_20260212_134037/analise_consolidada_fases_m0_m1_m3.md": "6081289dd4e0b7603d3fc15019078608b3dfcf5457d030c525f2cf186cee4719",
+    "/home/wilson/CEP_NA_BOLSA/outputs/ssot/precos_brutos/ibov/brapi/20260204/xt_ibov.csv": "677a225589c750979d072917ac152ad830bf3d113695ca71d1e44cc0c06afcc6",
+    "/home/wilson/CEP_NA_BOLSA/outputs/governanca/operacao_rotina/20260209/ROTINA_GESTAO_CARTEIRA_001/artefatos/120_master_calibration.json": "fc7b70c2929276b0413c1296a0af34f68c79e239eb3b1ceac52fd4ec31b3e602",
+    "/home/wilson/CEP_COMPRA/outputs/cycle2/20260213/master_regime_calibration/ssot_cycle2/master_regime_classifier_v1.json": "79e97b585fad790f63a776f3181e5efcc73a641b63e70cd838c48ce99c86259e"
+  }
+}
