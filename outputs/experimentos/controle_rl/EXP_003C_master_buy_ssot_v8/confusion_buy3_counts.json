@@ -1,0 +1,36 @@
+{
+  "confusion_buy3_counts_bvsp": {
+    "BUY2": {
+      "BUY2": 688,
+      "BUY1": 249,
+      "BUY0": 343
+    },
+    "BUY1": {
+      "BUY2": 108,
+      "BUY1": 100,
+      "BUY0": 179
+    },
+    "BUY0": {
+      "BUY2": 19,
+      "BUY1": 25,
+      "BUY0": 93
+    }
+  },
+  "confusion_buy3_counts_gspc": {
+    "BUY2": {
+      "BUY2": 498,
+      "BUY1": 542,
+      "BUY0": 382
+    },
+    "BUY1": {
+      "BUY2": 37,
+      "BUY1": 31,
+      "BUY0": 238
+    },
+    "BUY0": {
+      "BUY2": 13,
+      "BUY1": 0,
+      "BUY0": 63
+    }
+  }
+}

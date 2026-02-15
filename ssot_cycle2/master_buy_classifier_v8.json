@@ -1,0 +1,205 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_003C_MASTER_BUY_SSOT_V8_BUY3_DIRECT_AND_BUY1_CONTINUOUS_SCORE_V1",
+  "version": "v8",
+  "target": "BUY3_direct",
+  "fit_on": "^BVSP",
+  "validate_on_no_refit": "^GSPC",
+  "buy_mapping_from_5state": {
+    "BULL": "BUY2",
+    "CORR_BULL_NEUTRO": "BUY2",
+    "NEUTRO": "BUY2",
+    "CORR_NEUTRO_BEAR": "BUY1",
+    "BEAR": "BUY0"
+  },
+  "feature_constraints": {
+    "exogenous_only": true,
+    "feature_family": "CEP_MASTER_ONLY"
+  },
+  "model": {
+    "chosen_model": "logistic_regression",
+    "formula_probabilities": "heads binários: p_buy2=P(BUY2), p_buy0=P(BUY0); calibrados por rank_pct",
+    "logistic_buy2_head": {
+      "intercept": 0.002167523484710567,
+      "coefficients": {
+        "r_t": 0.6777666777466468,
+        "mr_t": 0.01778763909632669,
+        "xbar_n": -0.1548885993763235,
+        "range_n": -0.22490133959293432,
+        "z_r_60": -0.5993478462023376,
+        "cep_i_below_lcl": 0.12655457159794453,
+        "cep_i_above_ucl": -0.12626680117637348,
+        "cep_mr_above_ucl": 0.10990021622115476,
+        "cep_xbar_below_lcl": 0.11475037306814985,
+        "cep_xbar_above_ucl": -0.1319659955914019,
+        "cep_r_above_ucl": -0.20768743953295513,
+        "stress_score": 0.07836860643292716,
+        "upside_score": -0.16208580747793946
+      }
+    },
+    "logistic_buy0_head": {
+      "intercept": -0.25098023147974335,
+      "coefficients": {
+        "r_t": -0.6176620782378486,
+        "mr_t": 0.17332042128412795,
+        "xbar_n": 0.47734567293568103,
+        "range_n": 0.9422189079994125,
+        "z_r_60": 0.7162038390032078,
+        "cep_i_below_lcl": 0.026667103909660102,
+        "cep_i_above_ucl": 0.05548194521306906,
+        "cep_mr_above_ucl": -0.1690866789700305,
+        "cep_xbar_below_lcl": -0.08978813814194496,
+        "cep_xbar_above_ucl": 0.098761431619151,
+        "cep_r_above_ucl": 0.11692934843101627,
+        "stress_score": -0.0559033574335306,
+        "upside_score": 0.08803901157835022
+      }
+    },
+    "stump_buy2_head": {
+      "feature": "xbar_n",
+      "threshold": 1.144182,
+      "p_left": 0.5278106508875738,
+      "p_right": 0.2566168009205983
+    },
+    "stump_buy0_head": {
+      "feature": "range_n",
+      "threshold": 0.179538,
+      "p_left": 0.37663461589512975,
+      "p_right": 0.6933439842898392
+    },
+    "normalization": {
+      "mean_train": {
+        "r_t": 0.0002838355658264792,
+        "mr_t": 0.016609433749076113,
+        "xbar_n": 0.00029050964776141335,
+        "range_n": 0.02978094553257432,
+        "z_r_60": -0.0276177841261297,
+        "cep_i_below_lcl": 0.013460015835312747,
+        "cep_i_above_ucl": 0.00870942201108472,
+        "cep_mr_above_ucl": 0.02929532858273951,
+        "cep_xbar_below_lcl": 0.011084718923198733,
+        "cep_xbar_above_ucl": 0.003167062549485352,
+        "cep_r_above_ucl": 0.02929532858273951,
+        "stress_score": 0.054552652414885223,
+        "upside_score": 0.011243072050673002
+      },
+      "std_train": {
+        "r_t": 0.01695384133458471,
+        "mr_t": 0.019709596877486513,
+        "xbar_n": 0.007846342359905004,
+        "range_n": 0.024478230955349848,
+        "z_r_60": 1.0248129234773322,
+        "cep_i_below_lcl": 0.11523386572108958,
+        "cep_i_above_ucl": 0.09291699510486423,
+        "cep_mr_above_ucl": 0.16863307002473965,
+        "cep_xbar_below_lcl": 0.10469884397448251,
+        "cep_xbar_above_ucl": 0.05618747426511437,
+        "cep_r_above_ucl": 0.16863307002473465,
+        "stress_score": 0.29550783247945667,
+        "upside_score": 0.1089805505281257
+      }
+    },
+    "features_used": [
+      "r_t",
+      "mr_t",
+      "xbar_n",
+      "range_n",
+      "z_r_60",
+      "cep_i_below_lcl",
+      "cep_i_above_ucl",
+      "cep_mr_above_ucl",
+      "cep_xbar_below_lcl",
+      "cep_xbar_above_ucl",
+      "cep_r_above_ucl",
+      "stress_score",
+      "upside_score"
+    ]
+  },
+  "operational_rule_buy3": {
+    "dminus1_enforced": true,
+    "thresholds": {
+      "p_buy2_enter": 0.65,
+      "p_buy2_exit_delta": 0.01,
+      "p_buy0_enter": 0.65,
+      "p_buy0_exit_delta": 0.02,
+      "min_days": 5,
+      "bias_buy1": -0.1,
+      "macro_f1_buy3_cal": 0.3889848080653004,
+      "balanced_accuracy_buy3_cal": 0.4915766832016195,
+      "switches_per_year_buy3_cal": 5.7272727272727275,
+      "score_final": 0.5307305402985135
+    },
+    "pseudocode": [
+      "calcular p_buy2(D-1), p_buy0(D-1)",
+      "aplicar regra com histerese/min_days para BUY2/BUY1/BUY0"
+    ]
+  },
+  "buy1_continuous_score": {
+    "name": "buy1_intensity_score",
+    "definition": "raw = p_buy2/(p_buy2+p_buy0+1e-9); clamp[0,1]; BUY1->raw, BUY2->1.0, BUY0->0.0",
+    "range": [
+      0.0,
+      1.0
+    ]
+  },
+  "evaluation": {
+    "calibration_bvsp": {
+      "macro_f1_buy3": 0.3889848080653004,
+      "balanced_accuracy_buy3": 0.4915766832016195,
+      "switches_per_year_buy3": 5.7272727272727275,
+      "class_distribution_buy3": {
+        "BUY2": 815,
+        "BUY0": 615,
+        "BUY1": 374
+      },
+      "confusion_buy3_counts": {
+        "BUY2": {
+          "BUY2": 688,
+          "BUY1": 249,
+          "BUY0": 343
+        },
+        "BUY1": {
+          "BUY2": 108,
+          "BUY1": 100,
+          "BUY0": 179
+        },
+        "BUY0": {
+          "BUY2": 19,
+          "BUY1": 25,
+          "BUY0": 93
+        }
+      }
+    },
+    "validation_gspc": {
+      "macro_f1_buy3": 0.24737545333485475,
+      "balanced_accuracy_buy3": 0.4268218428092238,
+      "switches_per_year_buy3": 5.447893569844789,
+      "class_distribution_buy3": {
+        "BUY0": 683,
+        "BUY1": 573,
+        "BUY2": 548
+      },
+      "confusion_buy3_counts": {
+        "BUY2": {
+          "BUY2": 498,
+          "BUY1": 542,
+          "BUY0": 382
+        },
+        "BUY1": {
+          "BUY2": 37,
+          "BUY1": 31,
+          "BUY0": 238
+        },
+        "BUY0": {
+          "BUY2": 13,
+          "BUY1": 0,
+          "BUY0": 63
+        }
+      }
+    },
+    "states_reachable_pass": true
+  },
+  "anti_leakage": {
+    "decision_time_rule": "qualquer decisão em D usa dados até D-1",
+    "enforcement": "FAIL_IF_VIOLATED"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "task_id": "TASK_CEP_COMPRA_EXP_003C_MASTER_BUY_SSOT_V8_BUY3_DIRECT_AND_BUY1_CONTINUOUS_SCORE_V1",
+  "inputs": {
+    "repo_root": "/home/wilson/CEP_COMPRA",
+    "python_exec": "/home/wilson/PortfolioZero/.venv/bin/python",
+    "loaded_from_003b": {
+      "mode": "load_previous_outputs_003b",
+      "missing_before": []
+    },
+    "paths": [
+      "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_theory_5state_bvsp.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/labels_theory_5state_gspc.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/cep_features_bvsp.parquet",
+      "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003B_master_regime_v7_5state/cep_features_gspc.parquet"
+    ]
+  },
+  "outputs": {
+    "buy3_labels_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy3_labels_bvsp.parquet",
+    "buy3_labels_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy3_labels_gspc.parquet",
+    "model_fit_summary_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/model_fit_summary.json",
+    "threshold_search_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/threshold_search_results.parquet",
+    "buy_daily_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy_daily_bvsp.parquet",
+    "buy_daily_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy_daily_gspc.parquet",
+    "buy1_intensity_bvsp_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy1_intensity_bvsp.parquet",
+    "buy1_intensity_gspc_parquet": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/buy1_intensity_gspc.parquet",
+    "confusion_buy3_counts_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/confusion_buy3_counts.json",
+    "ssot_master_buy_classifier_v8_json": "/home/wilson/CEP_COMPRA/ssot_cycle2/master_buy_classifier_v8.json",
+    "report_md_autocontido": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/report.md",
+    "manifest_json": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/manifest.json",
+    "hashes_sha256": "/home/wilson/CEP_COMPRA/outputs/experimentos/controle_rl/EXP_003C_master_buy_ssot_v8/hashes.sha256"
+  },
+  "gates": {
+    "S1_GATE_ALLOWLIST_CEP_COMPRA_ONLY": "PASS",
+    "S2_CHECK_COMPILE_OR_IMPORTS": "PASS",
+    "S3_LOAD_OR_BUILD_INPUTS_FROM_003B": "PASS",
+    "S4_BUILD_BUY3_LABELS_FROM_5STATE": "PASS",
+    "S5_FIT_BUY3_MODEL_ON_BVSP_THRESHOLD_SEARCH": "PASS",
+    "S6_VALIDATE_ON_GSPC_NO_REFIT": "PASS",
+    "S7_GENERATE_CONFUSION_BUY3_COUNTS": "PASS",
+    "S8_BUILD_BUY1_CONTINUOUS_SCORE": "PASS",
+    "S9_VERIFY_BUY3_REACHABLE_AND_STABLE": "PASS",
+    "S10_ANTI_LEAKAGE_AUDIT_DMINUS1": "PASS",
+    "S11_WRITE_SSOT_V8_EXPLICIT_FORMULA_PSEUDOCODE_SCORE": "PASS",
+    "S12_GENERATE_MD_AUTOCONTIDO_MANIFEST_HASHES": "PASS"
+  }
+}
